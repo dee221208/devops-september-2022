@@ -1086,3 +1086,229 @@ Expected output
 [INFO] Finished at: 2022-09-26T03:19:32-07:00
 [INFO] ------------------------------------------------------------------------
 </pre>
+
+## Interactively creating Maven custom plugin project using archetype plugin
+```
+mvn archetype:generate
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org Day1]$ <b>mvn archetype:generate</b>
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.apache.maven:standalone-pom >-------------------
+[INFO] Building Maven Stub Project (No POM) 1
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] >>> maven-archetype-plugin:3.2.1:generate (default-cli) > generate-sources @ standalone-pom >>>
+[INFO] 
+[INFO] <<< maven-archetype-plugin:3.2.1:generate (default-cli) < generate-sources @ standalone-pom <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-archetype-plugin:3.2.1:generate (default-cli) @ standalone-pom ---
+[INFO] Generating project in Interactive mode
+[INFO] No archetype defined. Using maven-archetype-quickstart (org.apache.maven.archetypes:maven-archetype-quickstart:1.0)
+Choose archetype:
+Choose a number or apply filter (format: [groupId:]artifactId, case sensitive contains): 1960: <b>plugin</b>
+Choose archetype:
+1: remote -> ca.bc.gov.open.cpf:cpf-archetype-plugin (CPF Plug-in Maven Arechtype)
+2: remote -> cn.hchub:maven-archetype-plugin (HC :: maven archetype :: plugin)
+3: remote -> co.cask.cdap:cdap-data-pipeline-plugins-archetype (-)
+4: remote -> com.abiquo:backup-plugin-archetype (Maven archetype for an Abiquo Backup plugin)
+5: remote -> com.abiquo:storage-plugin-archetype (Maven archetype for an Abiquo Storage Plugin)
+6: remote -> com.amazon.alexa:ask-sdk-maven-plugins (Maven plugins for the ASK SDK and/or associated frameworks.)
+7: remote -> com.atlassian.maven.archetypes:bamboo-plugin-archetype (This archetype can be used to create a new Atlassian Bamboo plugin project)
+8: remote -> com.atlassian.maven.archetypes:confluence-plugin-archetype (This archetype can be used to create a new Atlassian Confluence plugin project)
+9: remote -> com.atlassian.maven.archetypes:crowd-plugin-archetype (This archetype can be used to create a new Atlassian Crowd plugin project)
+10: remote -> com.atlassian.maven.archetypes:fecru-plugin-archetype (This archetype can be used to create a new Atlassian FishEye / Crucible plugin project)
+11: remote -> com.atlassian.maven.archetypes:jira-plugin-archetype (This archetype can be used to create a new Atlassian JIRA plugin project)
+12: remote -> com.atlassian.maven.archetypes:jira4-plugin-archetype (This archetype can be used to create a new Atlassian JIRA plugin project for JIRA 4.x)
+13: remote -> com.atlassian.maven.archetypes:plugin-archetype (This archetype can be used to create a new cross-product Atlassian plugin project)
+14: remote -> com.atlassian.maven.archetypes:refapp-plugin-archetype (This archetype can be used to create a new Atlassian Refapp plugin project)
+15: remote -> com.atlassian.maven.archetypes:stash-plugin-archetype (This archetype can be used to create a new Atlassian Stash plugin project)
+16: remote -> com.atlassian.maven.archetypes:studio-plugin-archetype (This archetype can be used to create a new Atlassian Studio plugin project)
+17: remote -> com.crawljax.plugins.archetypes:crawljax-plugins-archetype (Generates a Crawljax project template.)
+18: remote -> com.free-now.sauron:sauron-plugin-archetype (Sauron Plugin Archetype)
+19: remote -> com.funnelback:plugin-archetypes (Archetype for a plugin for the Funnelback Enterprise Search Engine)
+20: remote -> com.github.carlosvin.archetype:lifecycle-maven-plugin-archetype (Archetype for an example of custom Maven plugin overriding default lifecycle)
+21: remote -> com.github.genthaler:ant-maven-plugin-archetype (Maven Archetype to generate an Ant-based Maven Plugin)
+22: remote -> com.github.genthaler:beanshell-maven-plugin-archetype (Maven Archetype to generate an Beanshell-based Maven Plugin)
+23: remote -> com.github.hc621311:maven-archetype-plugin (HC :: maven archetype :: plugin)
+24: remote -> com.github.liuzhenghui:ecology-plugin-archetype (ecology archetype for Java)
+25: remote -> com.github.venkatramanm.swf-all:swf-plugin-archetype (Succinct Web Framework - Archetype to create Plugins)
+26: remote -> com.google.gerrit:gerrit-plugin-archetype (Maven Archetype for Gerrit Plugins)
+27: remote -> com.google.gerrit:gerrit-plugin-gwt-archetype (Maven Archetype for Gerrit Web UI GWT Plugins)
+28: remote -> com.google.gerrit:gerrit-plugin-js-archetype (Maven Archetype for Gerrit Web UI JavaScript Plugins)
+29: remote -> com.googlecode.gwtquery:gquery-plugin-archetype (This archetype generates a maven/eclipse project with all set for creating a new GwtQuery Plugin)
+30: remote -> com.gwidgets.maven:gwt-simple-mojo-plugin (simple gwt project archetype with mojo plugin)
+31: remote -> com.hivemq:hivemq-plugin-archetype (The Maven Plugin Archetype which makes HiveMQ plugin development a breeze.)
+32: remote -> com.hurence.logisland:logisland-plugin-archetype (-)
+33: remote -> com.igormaznitsa:mind-map-plugin (Archetype to create base project of a NB mind map plugin)
+34: remote -> com.maukaim.opensource:plugin-quickstart (Starter skeleton for Cryptohub plugins developers to quick start their projects.)
+35: remote -> com.opsdatastore:opsdatastore-collector-plugin-archetype (-)
+36: remote -> com.perfma.xlab:xpocket-plugin-archetype (XPocket Plugin ArcheType Definition)
+37: remote -> com.shr25.robot:qq-robot-plugin-maven (快速创建shr25机器人插件模板)
+38: remote -> com.sixdimensions.wcm.cq:cq-deploy-plugin (Maven plugin for automating code deployments to Adobe CQ.)
+39: remote -> com.tealcube.minecraft.bukkit:bukkit-plugin-archetype (A Bukkit plugin archetype for Teal Cube plugins and libraries.)
+40: remote -> com.testsigma:kibbutz-plugin-archetype (Archetype used to generate Testsigma SDK Plugin)
+41: remote -> com.testsigma.kibbutz.archetypes:kibbutz-plugin-archetype (Archetype used to generate Testsigma SDK Plugin)
+42: remote -> com.thoughtworks.gauge.maven:gauge-maven-plugin (A maven plugin to execute gauge specs in the project)
+43: remote -> com.vaadin:vaadin-maven-plugin (Maven plugin for Vaadin.)
+44: remote -> com.vip.pallas:pallas-plugin-archetype (-)
+45: remote -> de.akquinet.javascript.archetypes:javascript-jqueryplugin (Creates a skeleton for an Javascript jquery plugin)
+46: remote -> global.namespace.truelicense-maven-archetype:truelicense-maven-plugin (The TrueLicense Maven Archetype is a turn-key solution for designing
+        and implementing a custom licensing schema for your software product.
+        The archetype generates a tailor-made project which is composed of
+        ready-made modules for vending and consuming license keys.
+        The modules contain code templates which you can easily customize
+        without writing code by configuring a set of properties.)
+47: remote -> io.axual.archetypes:kafka-connect-plugin-archetype (Archetype for creating an Apache Kafka Connect plugin project)
+48: remote -> io.cdap.cdap:cdap-data-pipeline-plugins-archetype (-)
+49: remote -> io.curity:identityserver.plugins.archetypes.alarm-handler (An archetype that generates the Java source code necessary to create an alarm handler plug-in.)
+50: remote -> io.curity:identityserver.plugins.archetypes.authentication-action (-)
+51: remote -> io.curity:identityserver.plugins.archetypes.authenticator (An archetype that generates the source code necessary to create an authenticator plug-in)
+52: remote -> io.curity:identityserver.plugins.archetypes.authorization-manager (An archetype that generates the Java source code necessary to create an authorization manager plug-in.)
+53: remote -> io.curity:identityserver.plugins.archetypes.backchannel-authenticator (An archetype that generates the source code necessary to create a back-channel authenticator plug-in)
+54: remote -> io.curity:identityserver.plugins.archetypes.claims-provider (-)
+55: remote -> io.curity:identityserver.plugins.archetypes.consentor (-)
+56: remote -> io.curity:identityserver.plugins.archetypes.data-access-provider (-)
+57: remote -> io.curity:identityserver.plugins.archetypes.email-sender (-)
+58: remote -> io.curity:identityserver.plugins.archetypes.event-listener (-)
+59: remote -> io.curity:identityserver.plugins.archetypes.kotlin-alarm-handler (An archetype that generates the Kotlin source code necessary to create an alarm handler plug-in.)
+60: remote -> io.curity:identityserver.plugins.archetypes.kotlin-authentication-action (An archetype that generates the Kotlin source code necessary to create an authentication action plug-in.)
+61: remote -> io.curity:identityserver.plugins.archetypes.kotlin-authenticator (An archetype that generates the Kotlin source code necessary to create an authenticator plug-in.)
+62: remote -> io.curity:identityserver.plugins.archetypes.kotlin-authorization-manager (An archetype that generates the Kotlin source code necessary to create an authorization manager plug-in.)
+63: remote -> io.curity:identityserver.plugins.archetypes.kotlin-backchannel-authenticator (An archetype that generates the Kotlin source code necessary to create a back-channel authenticator plug-in.)
+64: remote -> io.curity:identityserver.plugins.archetypes.kotlin-claims-provider (An archetype that generates the Kotlin source code necessary to create a claims provider plug-in.)
+65: remote -> io.curity:identityserver.plugins.archetypes.kotlin-consentor (An archetype that generates the Kotlin source code necessary to create a consentor plug-in.)
+66: remote -> io.curity:identityserver.plugins.archetypes.kotlin-data-access-provider (An archetype that generates the Kotlin source code necessary to create a data access provider plug-in.)
+67: remote -> io.curity:identityserver.plugins.archetypes.kotlin-email-sender (An archetype that generates the Kotlin source code necessary to create an email sender plug-in.)
+68: remote -> io.curity:identityserver.plugins.archetypes.kotlin-event-listener (An archetype that generates the Kotlin source code necessary to create an event listener plug-in.)
+69: remote -> io.curity:identityserver.plugins.archetypes.kotlin-oauth-authenticator (An archetype that generates the Kotlin source code necessary to create an authenticator plug-in that communicates with an upstream OAuth or OpenID Connect provider.)
+70: remote -> io.curity:identityserver.plugins.archetypes.kotlin-signing-consentor (An archetype that generates the Kotlin source code necessary to create signing consentor plug-in.)
+71: remote -> io.curity:identityserver.plugins.archetypes.kotlin-sms-sender (An archetype that generates the Kotlin source code necessary to create an sms sender plug-in.)
+72: remote -> io.curity:identityserver.plugins.archetypes.oauth-authenticator (An archetype that generates the source code necessary to create an authenticator plug-in that communicates with an upstream OAuth or OpenID Connect provider)
+73: remote -> io.curity:identityserver.plugins.archetypes.signing-consentor (-)
+74: remote -> io.curity:identityserver.plugins.archetypes.sms-sender (-)
+75: remote -> io.jenkins.archetypes:empty-plugin (Skeleton of a Jenkins plugin with a POM and an empty source tree.)
+76: remote -> io.jenkins.archetypes:global-configuration-plugin (Skeleton of a Jenkins plugin with a POM and an example piece of global configuration.)
+77: remote -> io.jenkins.archetypes:hello-world-plugin (Skeleton of a Jenkins plugin with a POM and an example build step.)
+78: remote -> io.openliberty.tools:liberty-plugin-archetype (-)
+79: remote -> it.bancaditalia.oss:r-maven-plugin (This plugin brings into Maven the lifecycle of an R package.
+		It builds onto the existing R installation to perform build, check, etc.
+		It provides means to complete a DESCRIPTION file with version, etc.
+		In the future, It will allow to deploy the project to CRAN as well as a Maven artifact repository.)
+80: remote -> net.ja731j.bukkit:bukkit-plugin-simple (A Maven archetype which creates a simple Bukkit plugin)
+81: remote -> net.sf.squirrel-sql.plugins:squirrelsql-plugin-archetype (This project produces the maven archetype that can be used to generate a SQuirreL
+		Plugin
+		maven project. The project that is produced contains an Example plugin that demonstrates the use
+		of key plugin APIs.)
+82: remote -> net.wasdev.wlp.maven:liberty-plugin-archetype (-)
+83: remote -> net.wetheinter:gwt-maven-plugin (Maven plugin for the Google Web Toolkit.)
+84: remote -> nl.xymion.maven.archetypes:minecraft-plugin-archetype (A simple archetype for creating Minecraft plugins. This archetype creates dynamic content.)
+85: remote -> org.apache.felix:maven-ipojo-plugin (Maven Plugin to package iPOJO-powered bundles.)
+86: remote -> org.apache.geronimo.buildsupport:geronimo-plugin-archetype (-)
+87: remote -> org.apache.maven.archetypes:maven-archetype-plugin (An archetype which contains a sample Maven plugin.)
+88: remote -> org.apache.maven.archetypes:maven-archetype-plugin-site (An archetype which contains a sample Maven plugin site. This archetype can be layered upon an
+    existing Maven plugin project.)
+89: remote -> org.apache.struts:struts2-archetype-plugin (Struts 2's Basic Plugin Archetype)
+90: remote -> org.camunda.bpm.archetype:camunda-archetype-cockpit-plugin (Plugin for Camunda Cockpit, contains REST-Backend, MyBatis database query, HTML and JavaScript frontend)
+91: remote -> org.camunda.bpm.archetype:camunda-archetype-engine-plugin (Process engine plugin for Camunda BPM.
+          Contains: ProcessEnginePlugin, ParseListener, JUnit Test with in-memory engine, BPMN process for testing.)
+92: remote -> org.carewebframework:org.carewebframework.mvn.archetype.plugin (-)
+93: remote -> org.codehaus.mojo:gwt-maven-plugin (Mojo's Maven Plugin for GWT)
+94: remote -> org.codehaus.mojo:xmlbeans-maven-plugin (Runs the xmlbeans parser/code generator against schemas in files and dependent jars.)
+95: remote -> org.codehaus.sonar.archetypes:sonar-basic-plugin-archetype (Maven archetype to create a basic Sonar plugin)
+96: remote -> org.codehaus.sonar.archetypes:sonar-gwt-plugin-archetype (Maven archetype to create a Sonar plugin including GWT pages)
+97: remote -> org.codelibs:elasticsearch-plugin-archetype (This archetype generates your project for Elasticsearch plugin.)
+98: remote -> org.coosproject.maven.archetypes:coos-plugin-actor (-)
+99: remote -> org.coosproject.maven.archetypes:coos-plugin-api (-)
+100: remote -> org.coosproject.maven.archetypes:coos-plugin-noapi (-)
+101: remote -> org.eclipse.hudson.tools:maven-hpi-plugin (Support for developing Hudson plugins with Apache Maven.)
+102: remote -> org.entando.entando:entando-archetype-plugin-generic (Plugin Archetype for Entando:  an agile, modern and user-centric open source web app like platform.)
+103: remote -> org.geomajas:geomajas-plugin-archetype (Geomajas plugin archetype)
+104: remote -> org.graylog:graylog-plugin-archetype (-)
+105: remote -> org.graylog2:graylog2-plugin-archetype (-)
+106: remote -> org.ikasan:ikasan-build-parent-maven-plugin (-)
+107: remote -> org.ikasan:ikasan-im-jboss6-activemq-maven-plugin (-)
+108: remote -> org.ikasan:ikasan-im-jboss6-db-maven-plugin (-)
+109: remote -> org.ikasan:ikasan-im-jboss6-filesystem-maven-plugin (-)
+110: remote -> org.ikasan:ikasan-im-jboss6-jms-maven-plugin (-)
+111: remote -> org.ikasan:ikasan-im-jboss6-sftp-maven-plugin (-)
+112: remote -> org.ikasan:ikasan-integration-module-jboss6-maven-plugin (-)
+113: remote -> org.ikasan:ikasan-rt-conf-jboss6-maven-plugin (-)
+114: remote -> org.ikasan:ikasan-standalone-db-jms-im-maven-plugin (-)
+115: remote -> org.ikasan:ikasan-standalone-filesystem-im-maven-plugin (-)
+116: remote -> org.ikasan:ikasan-standalone-ftp-jms-im-maven-plugin (-)
+117: remote -> org.ikasan:ikasan-standalone-hibernate-jms-im-maven-plugin (-)
+118: remote -> org.ikasan:ikasan-standalone-jms-im-maven-plugin (-)
+119: remote -> org.ikasan:ikasan-standalone-sftp-jms-im-maven-plugin (-)
+120: remote -> org.ikasan:ikasan-standalone-vanilla-im-maven-plugin (-)
+121: remote -> org.ikasan:jboss6-module-activemq-maven-plugin (-)
+122: remote -> org.jvnet.hudson.tools:maven-hpi-plugin (Support for developing Hudson plugins with Apache Maven.)
+123: remote -> org.lockss:lockss-plugins-archetype (-)
+124: remote -> org.opencastproject:opencast-theodul-plugin (An archetype that generates a plugin for the Opencast Theodul Player)
+125: remote -> org.opennms.integration.api:example-kar-plugin (-)
+126: remote -> org.owasp:dependency-check-plugin (-)
+127: remote -> org.parancoe:parancoe-pluginarchetype (-)
+128: remote -> org.rhq:rhq-plugin-archetype (-)
+129: remote -> org.silentsoft:actlist-plugin-archetype (Actlist Plugin Archetype)
+130: remote -> org.sonatype.nexus.archetypes:nexus-plugin-archetype (-)
+131: remote -> org.tinygroup:org.tinygroup.plugincomponentarchetype (-)
+132: remote -> org.tinygroup:plugincomponent (-)
+133: remote -> org.visallo:visallo-plugin-archetype (Generate a project for Visallo plugin development)
+134: remote -> org.walkmod:walkmod-plugin-archetype (Archetype to create a walkmod plugin)
+135: remote -> org.wso2.maven:humantask-maven-plugin (-)
+136: remote -> org.wso2.maven:maven-car-deploy-plugin (Maven plugin which deploys the generated CAR artifacts to remote/local Carbon Servers.)
+137: remote -> org.wso2.maven:maven-car-plugin (Maven plugin which creates CAR artifact)
+138: remote -> org.wso2.maven:maven-carbon-ui-plugin (Maven plugin which creates and builds Carbon UI artifacts)
+139: remote -> org.wso2.maven:wso2-general-project-plugin (-)
+140: remote -> ru.send-to.archetypes:dto-plugin-javaee7 (-)
+141: remote -> ru.send-to.archetypes:ear-plugin-javaee7 (-)
+142: remote -> ru.send-to.archetypes:ejb-plugin-javaee7 (-)
+143: remote -> ru.send-to.versionManagement:vesions-plugin-javaee7 (Versions management plugin archetype)
+144: remote -> ru.yandex.qatools.camelot:camelot-plugin (-)
+145: remote -> top.ssrsdev:eightroes-plugin-archetype (eightroes-webapp-archetype)
+146: remote -> uk.ac.gate:gate-plugin-archetype (Maven archetype to create a new GATE plugin project.)
+147: remote -> us.fatehi:schemacrawler-archetype-plugin-command (-)
+148: remote -> us.fatehi:schemacrawler-archetype-plugin-dbconnector (-)
+149: remote -> us.fatehi:schemacrawler-archetype-plugin-lint (-)
+Choose a number or apply filter (format: [groupId:]artifactId, case sensitive contains): : <b>87</b>
+Choose org.apache.maven.archetypes:maven-archetype-plugin version: 
+1: 1.0
+2: 1.1
+3: 1.2
+4: 1.3
+5: 1.4
+Choose a number: 5: 
+Define value for property 'groupId': <b>org.tektutor</b>
+Define value for property 'artifactId': <b>tektutor-hello-plugin</b>
+Define value for property 'version' 1.0-SNAPSHOT: : <b>1.0</b>
+Define value for property 'package' org.tektutor: : 
+Confirm properties configuration:
+groupId: org.tektutor
+artifactId: tektutor-hello-plugin
+version: 1.0
+package: org.tektutor
+ Y: : <b>Y</b>
+[INFO] ----------------------------------------------------------------------------
+[INFO] Using following parameters for creating project from Archetype: maven-archetype-plugin:1.4
+[INFO] ----------------------------------------------------------------------------
+[INFO] Parameter: groupId, Value: org.tektutor
+[INFO] Parameter: artifactId, Value: tektutor-hello-plugin
+[INFO] Parameter: version, Value: 1.0
+[INFO] Parameter: package, Value: org.tektutor
+[INFO] Parameter: packageInPathFormat, Value: org/tektutor
+[INFO] Parameter: package, Value: org.tektutor
+[INFO] Parameter: groupId, Value: org.tektutor
+[INFO] Parameter: artifactId, Value: tektutor-hello-plugin
+[INFO] Parameter: version, Value: 1.0
+[INFO] Project created from Archetype in dir: /home/jegan/devops-september-2022/Day1/tektutor-hello-plugin
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  40.393 s
+[INFO] Finished at: 2022-09-26T03:23:42-07:00
+[INFO] ------------------------------------------------------------------------
+</pre>
