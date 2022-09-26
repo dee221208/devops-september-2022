@@ -945,3 +945,27 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 [INFO] Finished at: 2022-09-26T02:35:41-07:00
 [INFO] ------------------------------------------------------------------------
 </pre>
+
+## Deleting the target folder and all binaries in it
+```
+mvn clean
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org hello]$ <b>mvn clean</b>
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.tektutor:tektutor-hello-app >-------------------
+[INFO] Building tektutor-hello-app 1.0.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ tektutor-hello-app ---
+[INFO] Deleting /home/jegan/devops-september-2022/Day1/hello/target
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.180 s
+[INFO] Finished at: 2022-09-26T02:39:44-07:00
+[INFO] ------------------------------------------------------------------------
+</pre>
