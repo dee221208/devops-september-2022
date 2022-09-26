@@ -948,6 +948,10 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 
 ## ⛹️‍♂️ Lab - Deleting the target folder and all binaries in it
 ```
+cd ~/devops-september-2022
+git pull
+cd Day1/hello
+
 mvn clean
 ```
 
@@ -967,5 +971,66 @@ Expected output
 [INFO] ------------------------------------------------------------------------
 [INFO] Total time:  0.180 s
 [INFO] Finished at: 2022-09-26T02:39:44-07:00
+[INFO] ------------------------------------------------------------------------
+</pre>
+
+## Maven Lifecycle
+- Maven has 3 inbuilt Life cycles
+  1. default ( 23 Phases )
+  2. clean ( 3 Phases )
+  3. site ( 4 Phases )
+  
+## Listing all the phases in Maven default lifecycle
+```
+cd ~/devops-september-2022
+git pull
+cd Day1/hello
+
+mvn help:describe -Dcmd=compile
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org hello]$ <b>mvn help:describe -Dcmd=compile</b>
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.tektutor:tektutor-hello-app >-------------------
+[INFO] Building tektutor-hello-app 1.0.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-help-plugin:3.3.0:describe (default-cli) @ tektutor-hello-app ---
+[INFO] 'compile' is a phase corresponding to this plugin:
+org.apache.maven.plugins:maven-compiler-plugin:3.1:compile
+
+It is a part of the lifecycle for the POM packaging 'jar'. This lifecycle includes the following phases:
+* validate: Not defined
+* initialize: Not defined
+* generate-sources: Not defined
+* process-sources: Not defined
+* generate-resources: Not defined
+* process-resources: org.apache.maven.plugins:maven-resources-plugin:2.6:resources
+* compile: org.apache.maven.plugins:maven-compiler-plugin:3.1:compile
+* process-classes: Not defined
+* generate-test-sources: Not defined
+* process-test-sources: Not defined
+* generate-test-resources: Not defined
+* process-test-resources: org.apache.maven.plugins:maven-resources-plugin:2.6:testResources
+* test-compile: org.apache.maven.plugins:maven-compiler-plugin:3.1:testCompile
+* process-test-classes: Not defined
+* test: org.apache.maven.plugins:maven-surefire-plugin:2.12.4:test
+* prepare-package: Not defined
+* package: org.apache.maven.plugins:maven-jar-plugin:2.4:jar
+* pre-integration-test: Not defined
+* integration-test: Not defined
+* post-integration-test: Not defined
+* verify: Not defined
+* install: org.apache.maven.plugins:maven-install-plugin:2.4:install
+* deploy: org.apache.maven.plugins:maven-deploy-plugin:2.7:deploy
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.578 s
+[INFO] Finished at: 2022-09-26T02:49:11-07:00
 [INFO] ------------------------------------------------------------------------
 </pre>
