@@ -85,3 +85,28 @@ Java version: 17.0.4.1, vendor: Oracle Corporation, runtime: /usr/java/jdk-17.0.
 Default locale: en_US, platform encoding: UTF-8
 OS name: "linux", version: "3.10.0-1160.el7.x86_64", arch: "amd64", family: "unix"
 </pre>
+
+## Validating pom.xml file in your first Maven project
+```
+cd ~/devops-september-2022
+git pull
+
+cd Day1/hello
+mvn validate
+```
+
+Expected output
+<pre>
+jegan@tektutor.org hello]$ <b>mvn validate</b>
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.tektutor:tektutor-hello-app >-------------------
+[INFO] Building tektutor-hello-app 1.0.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.104 s
+[INFO] Finished at: 2022-09-26T00:39:28-07:00
+[INFO] ------------------------------------------------------------------------
+</pre>
