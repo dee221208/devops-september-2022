@@ -980,7 +980,7 @@ Expected output
   2. clean ( 3 Phases )
   3. site ( 4 Phases )
   
-## Listing all the phases in Maven default lifecycle
+## ⛹️‍♀️ Lab - Listing all the phases in Maven default lifecycle
 ```
 cd ~/devops-september-2022
 git pull
