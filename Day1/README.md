@@ -66,3 +66,5 @@
     3. Central Repository
        - is setup using Sonatype Nexus
 
+## Maven High-Level Architecture
+![Maven High Level Architecture](MavenHighLevelArchitecture.png)
