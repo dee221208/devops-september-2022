@@ -71,7 +71,7 @@
 
 # Maven Commands
 
-## Finding the maven version installed
+## ⛹️‍♀️ Lab - Finding the maven version installed
 ```
 mvn --version
 ```
@@ -86,7 +86,7 @@ Default locale: en_US, platform encoding: UTF-8
 OS name: "linux", version: "3.10.0-1160.el7.x86_64", arch: "amd64", family: "unix"
 </pre>
 
-## Validating pom.xml file in your first Maven project
+## ⛹️‍♂️ Lab - Validating pom.xml file in your first Maven project
 ```
 cd ~/devops-september-2022
 git pull
