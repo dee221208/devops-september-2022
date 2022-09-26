@@ -1313,3 +1313,14 @@ confirm password - Admin@123
 2. Type, key as 'tektutor' without quotes
 3. You need to select maven and then the default maven-2 layout and click Create Repository button.
 
+## Configuring pom.xml to deploy your application artifacts to JFrog Artifactory
+We need to add the below tag in your pom.xml
+```
+<distributionManagement>
+	<repository>
+		<id>artifactory</id>
+		<url>http://localhost:8082/artifactory/tektutor/</url>
+	</repository>
+</distributionManagement>
+```
+
