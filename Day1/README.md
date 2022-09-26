@@ -946,7 +946,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 </pre>
 
-## Deleting the target folder and all binaries in it
+## ⛹️‍♂️ Lab - Deleting the target folder and all binaries in it
 ```
 mvn clean
 ```
