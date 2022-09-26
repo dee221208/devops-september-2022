@@ -393,6 +393,17 @@ Effective POMs, after inheritance, interpolation, and profiles are applied:
 [INFO] ------------------------------------------------------------------------
 ```
 
+## Plugins and Goals
+- Each Maven Plugin has one or more Goals
+- Each Goal does a specific task
+- For example:
+     Maven Compiler Plugins has got 3 goals
+     1. compile goal
+        - it compiles all the .java source code kept under src/main/java and its sub-folders
+     2. testCompile goal
+        - it compiles all the .java JUnit test source code kept under src/test/java and its sub-folders
+     3. help goal
+
 ## Lab - Finding the the list of goals and parametes of maven-compiler-plugin
 ```
 cd ~/devops-september-2022
@@ -1032,5 +1043,46 @@ It is a part of the lifecycle for the POM packaging 'jar'. This lifecycle includ
 [INFO] ------------------------------------------------------------------------
 [INFO] Total time:  0.578 s
 [INFO] Finished at: 2022-09-26T02:49:11-07:00
+[INFO] ------------------------------------------------------------------------
+</pre>
+
+## ⛹️‍♀️ Lab - Creating a custom Maven Plugin project using Maven archetype plugin
+```
+cd ~
+mvn archetype:generate -DgroupId=org.tektutor -DartifactId=tektutor-hello-plugin -Dversion=1.0.0 -DarchteypeArtifactId=maven-archetype-plugin -DinteractiveMode=false
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org Day1]$ <b>mvn archetype:generate -DgroupId=org.tektutor -DartifactId=tektutor-hello-plugin -Dversion=1.0.0 -DarchteypeArtifactId=maven-archetype-plugin -DinteractiveMode=false</b>
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.apache.maven:standalone-pom >-------------------
+[INFO] Building Maven Stub Project (No POM) 1
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] >>> maven-archetype-plugin:3.2.1:generate (default-cli) > generate-sources @ standalone-pom >>>
+[INFO] 
+[INFO] <<< maven-archetype-plugin:3.2.1:generate (default-cli) < generate-sources @ standalone-pom <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-archetype-plugin:3.2.1:generate (default-cli) @ standalone-pom ---
+[INFO] Generating project in Batch mode
+[INFO] No archetype defined. Using maven-archetype-quickstart (org.apache.maven.archetypes:maven-archetype-quickstart:1.0)
+[INFO] ----------------------------------------------------------------------------
+[INFO] Using following parameters for creating project from Old (1.x) Archetype: maven-archetype-quickstart:1.0
+[INFO] ----------------------------------------------------------------------------
+[INFO] Parameter: basedir, Value: /home/jegan/devops-september-2022/Day1
+[INFO] Parameter: package, Value: org.tektutor
+[INFO] Parameter: groupId, Value: org.tektutor
+[INFO] Parameter: artifactId, Value: tektutor-hello-plugin
+[INFO] Parameter: packageName, Value: org.tektutor
+[INFO] Parameter: version, Value: 1.0.0
+[INFO] project created from Old (1.x) Archetype in dir: /home/jegan/devops-september-2022/Day1/tektutor-hello-plugin
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.515 s
+[INFO] Finished at: 2022-09-26T03:19:32-07:00
 [INFO] ------------------------------------------------------------------------
 </pre>
