@@ -68,3 +68,20 @@
 
 ## Maven High-Level Architecture
 ![Maven High Level Architecture](MavenHighLevelArchitecture.png)
+
+# Maven Commands
+
+## Finding the maven version installed
+```
+mvn --version
+```
+
+Expected output
+<pre>
+jegan@tektutor.org devops-september-2022]$ <b>mvn --version</b>
+Apache Maven 3.8.6 (84538c9988a25aec085021c365c560670ad80f63)
+Maven home: /home/jegan/Downloads/apache-maven-3.8.6
+Java version: 17.0.4.1, vendor: Oracle Corporation, runtime: /usr/java/jdk-17.0.4.1
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-1160.el7.x86_64", arch: "amd64", family: "unix"
+</pre>
