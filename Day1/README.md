@@ -122,7 +122,7 @@ mvn help:effective-pom
 ```
 
 Expected output
-<pre>
+```
 jegan@tektutor.org hello]$ <b>mvn help:effective-pom</b>
 [INFO] Scanning for projects...
 [INFO] 
@@ -379,4 +379,4 @@ Effective POMs, after inheritance, interpolation, and profiles are applied:
 [INFO] Total time:  0.684 s
 [INFO] Finished at: 2022-09-26T01:47:35-07:00
 [INFO] ------------------------------------------------------------------------
-</pre>
+```
