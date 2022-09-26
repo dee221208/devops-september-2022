@@ -395,6 +395,10 @@ Effective POMs, after inheritance, interpolation, and profiles are applied:
 
 ## Lab - Finding the the list of goals and parametes of maven-compiler-plugin
 ```
+cd ~/devops-september-2022
+git pull
+cd Day1/hello
+
 mvn help:describe -Dplugin=org.apache.maven.plugins:maven-compiler-plugin:3.1 -Ddetail
 ```
 
@@ -854,5 +858,37 @@ compiler:testCompile
 [INFO] ------------------------------------------------------------------------
 [INFO] Total time:  1.093 s
 [INFO] Finished at: 2022-09-26T02:13:39-07:00
+[INFO] ------------------------------------------------------------------------
+</pre>
+
+## ⛹️‍♂️ Lab - Compiling your first maven project
+```
+cd ~/devops-september-2022
+git pull
+cd Day1/hello
+
+mvn compile
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org hello]$ <b>mvn compile</b>
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.tektutor:tektutor-hello-app >-------------------
+[INFO] Building tektutor-hello-app 1.0.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ tektutor-hello-app ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /home/jegan/devops-september-2022/Day1/hello/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ tektutor-hello-app ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.521 s
+[INFO] Finished at: 2022-09-26T02:32:45-07:00
 [INFO] ------------------------------------------------------------------------
 </pre>
