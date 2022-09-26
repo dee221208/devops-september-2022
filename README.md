@@ -199,3 +199,22 @@ Java version: 17.0.4.1, vendor: Oracle Corporation, runtime: /usr/java/jdk-17.0.
 Default locale: en_US, platform encoding: UTF-8
 OS name: "linux", version: "3.10.0-1160.el7.x86_64", arch: "amd64", family: "unix"
 </pre>
+
+## Cloning TekTutor GitHub Repo
+```
+cd ~
+git clone https://github.com/tektutor/devops-september-2022.git
+cd devops-september-2022
+ls
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org ~]$ <b>git clone https://github.com/tektutor/devops-september-2022.git</b>
+Cloning into 'devops-september-2022'...
+remote: Enumerating objects: 12, done.
+remote: Counting objects: 100% (12/12), done.
+remote: Compressing objects: 100% (7/7), done.
+remote: Total 12 (delta 1), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (12/12), done.
+</pre>
