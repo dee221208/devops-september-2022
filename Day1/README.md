@@ -111,6 +111,18 @@ jegan@tektutor.org hello]$ <b>mvn validate</b>
 [INFO] ------------------------------------------------------------------------
 </pre>
 
+## Super POM
+- every project specific POM file we write, inherits the common projects from Super POM
+- Maven learns the URL for plugin and dependency repository from super POM 
+- Maven learns the structure of POM from the super POM
+
+## Parent POM
+- in case of multi-module project, the top-level POM acts as a Parent POM
+- Parent POM inherits common properties from Super POM
+- Child module POMs inherits common properties from its Parent POM
+
+## Effective POM
+- effective is the combination the POM properties we wrote along with promperties inherited from Super and Parent POM
 
 ## ⛹️‍♂️ Lab - Printing effective pom
 ```
