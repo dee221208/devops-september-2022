@@ -1344,3 +1344,11 @@ Look for servers tag, under the server tag, you need to add the server credentia
 ```
 In the above server tag, notice the string 'artifactory' it should match the string id you configured in your pom.xml.
 
+## Deploying your project artifactory to JFrog Artifactory
+```
+cd ~/devops-september-2022
+git pull
+cd Day1/hello
+mvn deploy
+```
+
