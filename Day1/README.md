@@ -112,7 +112,7 @@ jegan@tektutor.org hello]$ <b>mvn validate</b>
 </pre>
 
 
-## Lab - Printing effective pom
+## ⛹️‍♂️ Lab - Printing effective pom
 ```
 cd ~/devops-september-2022
 git pull
