@@ -1281,3 +1281,155 @@ package: org.tektutor
 [INFO] Finished at: 2022-09-26T03:23:42-07:00
 [INFO] ------------------------------------------------------------------------
 </pre>
+
+## Starting JFrog Artifactory 
+```
+docker run -d --name artifactory --hostname artifactory -p 8081:8081 -p 8082:8082 docker.bintray.io/jfrog/artifactory-oss:latest
+```
+
+## Check if the JFrog artifactory is up and running
+```
+docker logs -f artifactory
+```
+## Accessing JFrog Artifactory from your CentOS Chrome browser
+```
+http://localhost:8081
+```
+When prompts for login credentials, you need type the below
+<pre>
+username - admin
+password - password
+</pre>
+
+When it prompts to change the password, I changed it to below
+<pre>
+new password - Admin@123
+confirm password - Admin@123
+</pre>
+
+
+## Create Repository
+1. Create a Local Repository
+2. Type, key as 'tektutor' without quotes
+3. You need to select maven and then the default maven-2 layout and click Create Repository button.
+
+## Configuring pom.xml to deploy your application artifacts to JFrog Artifactory
+We need to add the below tag in your pom.xml
+```
+<distributionManagement>
+	<repository>
+		<id>artifactory</id>
+		<url>http://localhost:8082/artifactory/tektutor/</url>
+	</repository>
+</distributionManagement>
+```
+
+## Configure Maven settings.xml file with the JFrog Artifactory login credentials
+You can find the maven install directory, using the below command
+```
+mvn --version
+```
+
+You could then edit the settings.xml file 
+```
+vim /home/jegan/Downloads/apache-maven-3.8.6/conf/settings.xml
+```
+Look for servers tag, under the server tag, you need to add the server credentials as shown below
+```
+<server>
+	<id>artifactory</id>
+	<username>admin</username>
+	<password>Admin@123</password>
+</server>
+```
+In the above server tag, notice the string 'artifactory' it should match the string id you configured in your pom.xml.
+
+## Deploying your project artifactory to JFrog Artifactory
+```
+cd ~/devops-september-2022
+git pull
+cd Day1/hello
+mvn deploy
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org hello]$ <b>mvn deploy</b>
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.tektutor:tektutor-hello-app >-------------------
+[INFO] Building tektutor-hello-app 1.0.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- tektutor-hello-plugin:1.0:hello (custom-validate) @ tektutor-hello-app ---
+TekTutor - Custom Hello Plugin ...
+[INFO] 
+[INFO] --- exec-maven-plugin:3.1.0:exec (custom-validate) @ tektutor-hello-app ---
+total 24
+lrwxrwxrwx.   1 root root    7 Sep 25 21:07 bin -> usr/bin
+dr-xr-xr-x.   5 root root 4096 Sep 25 21:19 boot
+drwxr-xr-x.  19 root root 3280 Sep 25 21:18 dev
+drwxr-xr-x. 147 root root 8192 Sep 26 04:47 etc
+drwxr-xr-x.   3 root root   19 Sep 25 21:18 home
+lrwxrwxrwx.   1 root root    7 Sep 25 21:07 lib -> usr/lib
+lrwxrwxrwx.   1 root root    9 Sep 25 21:07 lib64 -> usr/lib64
+drwxr-xr-x.   2 root root    6 Apr 10  2018 media
+drwxr-xr-x.   2 root root    6 Apr 10  2018 mnt
+drwxr-xr-x.   5 root root   48 Sep 26 04:45 opt
+dr-xr-xr-x. 289 root root    0 Sep 25 21:18 proc
+dr-xr-x---.   6 root root  229 Sep 26 04:32 root
+drwxr-xr-x.  46 root root 1380 Sep 26 04:45 run
+lrwxrwxrwx.   1 root root    8 Sep 25 21:07 sbin -> usr/sbin
+drwxr-xr-x.   2 root root    6 Apr 10  2018 srv
+dr-xr-xr-x.  13 root root    0 Sep 25 21:18 sys
+drwxrwxrwt.  22 root root 4096 Sep 26 05:36 tmp
+drwxr-xr-x.  14 root root  167 Sep 25 22:22 usr
+drwxr-xr-x.  21 root root 4096 Sep 25 21:18 var
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ tektutor-hello-app ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ tektutor-hello-app ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /home/jegan/devops-september-2022/Day1/hello/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ tektutor-hello-app ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ tektutor-hello-app ---
+[INFO] Surefire report directory: /home/jegan/devops-september-2022/Day1/hello/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.tektutor.HelloTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.048 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ tektutor-hello-app ---
+[INFO] Building jar: /home/jegan/devops-september-2022/Day1/hello/target/tektutor-hello-app-1.0.0.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ tektutor-hello-app ---
+[INFO] Installing /home/jegan/devops-september-2022/Day1/hello/target/tektutor-hello-app-1.0.0.jar to /home/jegan/.m2/repository/org/tektutor/tektutor-hello-app/1.0.0/tektutor-hello-app-1.0.0.jar
+[INFO] Installing /home/jegan/devops-september-2022/Day1/hello/pom.xml to /home/jegan/.m2/repository/org/tektutor/tektutor-hello-app/1.0.0/tektutor-hello-app-1.0.0.pom
+[INFO] 
+[INFO] --- maven-deploy-plugin:2.7:deploy (default-deploy) @ tektutor-hello-app ---
+Uploading to artifactory: http://localhost:8082/artifactory/tektutor/org/tektutor/tektutor-hello-app/1.0.0/tektutor-hello-app-1.0.0.jar
+Uploaded to artifactory: http://localhost:8082/artifactory/tektutor/org/tektutor/tektutor-hello-app/1.0.0/tektutor-hello-app-1.0.0.jar (2.5 kB at 7.0 kB/s)
+Uploading to artifactory: http://localhost:8082/artifactory/tektutor/org/tektutor/tektutor-hello-app/1.0.0/tektutor-hello-app-1.0.0.pom
+Uploaded to artifactory: http://localhost:8082/artifactory/tektutor/org/tektutor/tektutor-hello-app/1.0.0/tektutor-hello-app-1.0.0.pom (1.8 kB at 12 kB/s)
+Downloading from artifactory: http://localhost:8082/artifactory/tektutor/org/tektutor/tektutor-hello-app/maven-metadata.xml
+Uploading to artifactory: http://localhost:8082/artifactory/tektutor/org/tektutor/tektutor-hello-app/maven-metadata.xml
+Uploaded to artifactory: http://localhost:8082/artifactory/tektutor/org/tektutor/tektutor-hello-app/maven-metadata.xml (310 B at 3.7 kB/s)
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.545 s
+[INFO] Finished at: 2022-09-26T05:36:19-07:00
+[INFO] ------------------------------------------------------------------------
+</pre>
+
