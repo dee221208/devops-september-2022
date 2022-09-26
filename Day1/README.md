@@ -1307,3 +1307,9 @@ new password - Admin@123
 confirm password - Admin@123
 </pre>
 
+
+## Create Repository
+1. Create a Local Repository
+2. Type, key as 'tektutor' without quotes
+3. You need to select maven and then the default maven-2 layout and click Create Repository button.
+
