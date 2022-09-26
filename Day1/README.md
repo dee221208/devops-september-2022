@@ -1281,3 +1281,17 @@ package: org.tektutor
 [INFO] Finished at: 2022-09-26T03:23:42-07:00
 [INFO] ------------------------------------------------------------------------
 </pre>
+
+## Starting JFrog Artifactory 
+```
+docker run -d --name artifactory --hostname artifactory -p 8081:8081 -p 8082:8082 docker.bintray.io/jfrog/artifactory-oss:latest
+```
+
+## Check if the JFrog artifactory is up and running
+```
+docker logs -f artifactory
+```
+## Accessing JFrog Artifactory from your CentOS Chrome browser
+```
+http://localhost:8081
+```
