@@ -1295,3 +1295,15 @@ docker logs -f artifactory
 ```
 http://localhost:8081
 ```
+When prompts for login credentials, you need type the below
+<pre>
+username - admin
+password - password
+</pre>
+
+When it prompts to change the password, I changed it to below
+<pre>
+new password - Admin@123
+confirm password - Admin@123
+</pre>
+
