@@ -1324,3 +1324,23 @@ We need to add the below tag in your pom.xml
 </distributionManagement>
 ```
 
+## Configure Maven settings.xml file with the JFrog Artifactory login credentials
+You can find the maven install directory, using the below command
+```
+mvn --version
+```
+
+You could then edit the settings.xml file 
+```
+vim /home/jegan/Downloads/apache-maven-3.8.6/conf/settings.xml
+```
+Look for servers tag, under the server tag, you need to add the server credentials as shown below
+```
+<server>
+	<id>artifactory</id>
+	<username>admin</username>
+	<password>Admin@123</password>
+</server>
+```
+In the above server tag, notice the string 'artifactory' it should match the string id you configured in your pom.xml.
+
