@@ -2,10 +2,60 @@
 
 ## Ant build tool
 
-- Ant was developed by Apache Foundation as an Open source build tool
-- Ant was mainly used for Java projects as a build tool
-- Ant uses build.xml to capture the project name, the project build instructions
+- developed by Apache Foundation as an Open source build tool
+- mainly used for Java projects as a build tool
+- build.xml captures the project name and build instructions
 - Ant doesn't haven't dependency management support
 - Ant has conventions for java project directory structure, hence different project teams follow different folder structure and this leads to confusion
 
+
+## Apache Maven build tool
+- developed by Apache Foundation as an Open source build tool
+- mainly used by Java projects as build tool but also works with other programming language stack
+- has conventions for pretty much anything
+    - it has conventions on how to name your projects
+    - it has conventions on the folder structure ie where to place application source code, where to place test code
+- convention over configuration
+    - maven uses pom.xml to capture project name as Maven co-ordinates
+    - maven has specific section where Maven depedencies can be captured
+    - maven has specific section where your project dependencies can be captured
+- Maven Co-ordinates
+   - uses 3 co-ordinates
+       1. GroupId 
+           - string that can represents your organization reverse domain name 
+           - to avoid naming collision within your organization, you can also append your project name
+       2. ArtifactId 
+          - name of jar/war/ear/zip 
+       3. Version - x.y.z
+            x - major version
+            y - minor version
+            z - incremental version
+   - maven project names are unique combination of Maven coordinates
+- Maven Plugins
+  - Maven has plugins for every purpose
+  - Maven has a plugin for compiling application code
+  - Maven has a plugin for cleaning target folder that has application compiled/packaged binaries
+  - Maven has plugin(s) for packaging your application as jar file, war file or ear file, etc.
+  - Maven has plugin(s) for deploying application jars into external environment
+     - you have a plugin to deploy jars to weblogic
+     - you have a plugin to deploy jars to tomcat
+     - you have built-in plugin to deploy jars to JFrog Artifactory or Sonatype Nexus
+- Maven Dependencies
+
+- Maven Repositories
+  - repository is a server ( typically a website )
+  - that has a collection of many opensource third-party plugins and application dependency jars
+  - in simple words a Modern FTP Server
+      - we can manually download jars file just like how we do in classical FTP server
+      - apart from this, programatically we could upload/download maven artifacts using their Maven Co-ordinates
+  - supports 3 types of Repositories
+    1. Local Repository
+         - folder created under home directory of the logged in user .m2
+    2. Private Repository
+         - docker image called registry:2 can be used for R&D and learning purpose 
+         - For production grade setup, you could use any of the below software
+           1. JFrog Artifactory
+           2. Sonatype Nexus
+    3. Central Repository
+       - is setup using Sonatype Nexus
 
