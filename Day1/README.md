@@ -32,6 +32,8 @@
             z - incremental version
    - maven project names are unique combination of Maven coordinates
 - Maven Plugins
+  - these are jar files just like Maven dependencies
+  - these plugins are required for Maven to compile your application or package your appliction binaries as a jar/war/ear/zip file, etc.,
   - Maven has plugins for every purpose
   - Maven has a plugin for compiling application code
   - Maven has a plugin for cleaning target folder that has application compiled/packaged binaries
@@ -41,6 +43,11 @@
      - you have a plugin to deploy jars to tomcat
      - you have built-in plugin to deploy jars to JFrog Artifactory or Sonatype Nexus
 - Maven Dependencies
+  - these are jar files just like plugins
+  - these are third-party opensource libraries used by your application
+  - For example:
+     - your application might use log4j for writing applications
+     - your application might use junit for unit and integration testing
 
 - Maven Repositories
   - repository is a server ( typically a website )
