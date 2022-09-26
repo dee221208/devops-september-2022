@@ -239,3 +239,64 @@ Fast-forward
  README.md | 19 +++++++++++++++++++
  1 file changed, 19 insertions(+)
 </pre>
+
+## Installing Docker Community Edition in CentOS 7.9
+```
+sudo yum install -y yum-utils
+
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+
+sudo yum install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+sudo systemctl enable docker
+sudo systemctl start docker
+sudo usermod -aG docker $USER
+newgrp docker
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org Day1]$ <b>sudo systemctl status docker</b>
+● docker.service - Docker Application Container Engine
+   Loaded: loaded (/usr/lib/systemd/system/docker.service; enabled; vendor preset: disabled)
+   Active: inactive (dead)
+     Docs: https://docs.docker.com
+[jegan@tektutor.org Day1]$ <b>sudo systemctl start docker</b>
+[jegan@tektutor.org Day1]$ sudo systemctl status docker
+● docker.service - Docker Application Container Engine
+   Loaded: loaded (/usr/lib/systemd/system/docker.service; enabled; vendor preset: disabled)
+   Active: active (running) since Mon 2022-09-26 04:45:53 PDT; 1s ago
+     Docs: https://docs.docker.com
+ Main PID: 94070 (dockerd)
+    Tasks: 9
+   Memory: 30.3M
+   CGroup: /system.slice/docker.service
+           └─94070 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+
+Sep 26 04:45:51 tektutor.org dockerd[94070]: time="2022-09-26T04:45:51.703558501-07:00" level=info msg="ccResolve...=grpc
+Sep 26 04:45:51 tektutor.org dockerd[94070]: time="2022-09-26T04:45:51.703565751-07:00" level=info msg="ClientCon...=grpc
+Sep 26 04:45:51 tektutor.org dockerd[94070]: time="2022-09-26T04:45:51.721524912-07:00" level=info msg="Loading c...art."
+Sep 26 04:45:52 tektutor.org dockerd[94070]: time="2022-09-26T04:45:52.757913645-07:00" level=info msg="Default b...ress"
+Sep 26 04:45:52 tektutor.org dockerd[94070]: time="2022-09-26T04:45:52.935855433-07:00" level=info msg="Firewalld...ning"
+Sep 26 04:45:53 tektutor.org dockerd[94070]: time="2022-09-26T04:45:53.129260905-07:00" level=info msg="Loading c...one."
+Sep 26 04:45:53 tektutor.org dockerd[94070]: time="2022-09-26T04:45:53.158376476-07:00" level=info msg="Docker da...10.18
+Sep 26 04:45:53 tektutor.org dockerd[94070]: time="2022-09-26T04:45:53.158709003-07:00" level=info msg="Daemon ha...tion"
+Sep 26 04:45:53 tektutor.org systemd[1]: Started Docker Application Container Engine.
+Sep 26 04:45:53 tektutor.org dockerd[94070]: time="2022-09-26T04:45:53.215227250-07:00" level=info msg="API liste...sock"
+Hint: Some lines were ellipsized, use -l to show in full.
+[jegan@tektutor.org Day1]$ <b>docker images</b>
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/images/json": dial unix /var/run/docker.sock: connect: permission denied
+[jegan@tektutor.org Day1]$ <b>id</b>
+uid=1000(jegan) gid=1000(jegan) groups=1000(jegan) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+[jegan@tektutor.org Day1]$ <b>echo $USER</b>
+jegan
+[jegan@tektutor.org Day1]$ <b>sudo usermod -aG docker $USER</b>
+[jegan@tektutor.org Day1]$ <b>id</b>
+uid=1000(jegan) gid=1000(jegan) groups=1000(jegan) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+[jegan@tektutor.org Day1]$ <b>newgrp docker</b>
+[jegan@tektutor.org Day1]$ id
+uid=1000(jegan) gid=981(docker) groups=981(docker),1000(jegan) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+
+[jegan@tektutor.org Day1]$ <b>docker images</b>
+REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
+</pre>
