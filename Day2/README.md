@@ -546,3 +546,27 @@ CONTAINER ID   IMAGE                                            COMMAND         
 ad3588fe2258   mysql:latest                                     "docker-entrypoint.s…"   21 hours ago   Up 21 hours   3306/tcp, 33060/tcp                                             mysql
 1cbbabada110   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   21 hours ago   Up 21 hours   0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
 </pre>
+
+## Starting an exited container
+```
+docker ps -a
+docker start ubuntu1
+docker ps
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org Day2]$ <b>docker ps -a</b>
+CONTAINER ID   IMAGE                                            COMMAND                  CREATED          STATUS                          PORTS                                                           NAMES
+<b>517846b24a6a   ubuntu:16.04                                     "/bin/bash"              8 minutes ago    Exited (0) About a minute ago                                                                   ubuntu1</b>
+9db646569c40   hello-world:latest                               "/hello"                 13 minutes ago   Exited (0) 13 minutes ago                                                                       dazzling_lalande
+ad3588fe2258   mysql:latest                                     "docker-entrypoint.s…"   21 hours ago     Up 21 hours                     3306/tcp, 33060/tcp                                             mysql
+1cbbabada110   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   21 hours ago     Up 21 hours                     0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
+[jegan@tektutor.org Day2]$ <b>docker start ubuntu1</b>
+ubuntu1
+[jegan@tektutor.org Day2]$ <b>docker ps</b>
+CONTAINER ID   IMAGE                                            COMMAND                  CREATED         STATUS        PORTS                                                           NAMES
+<b>517846b24a6a   ubuntu:16.04                                     "/bin/bash"              8 minutes ago   Up 1 second                                                                   ubuntu1</b>
+ad3588fe2258   mysql:latest                                     "docker-entrypoint.s…"   21 hours ago    Up 21 hours   3306/tcp, 33060/tcp                                             mysql
+1cbbabada110   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   21 hours ago    Up 21 hours   0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
+</pre>
