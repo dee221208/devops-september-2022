@@ -1450,3 +1450,105 @@ ubuntu1
 root@ubuntu1:/# exit
 exit
 </pre>
+
+
+## Let's create mysql db server container and store db and tables in the container storage
+```
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org Day2]$ docker run -d --name mysql --hostname mysql -e MYSQL_ROOT_PASSWORD=root@123 mysql:latest
+ee37547bcbd0048a1e163f5324465c0cf5b20874b9cbda919ebf07566a98b3c5
+[jegan@tektutor.org Day2]$ docker ps
+CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS                 NAMES
+ee37547bcbd0   mysql:latest   "docker-entrypoint.s…"   2 seconds ago   Up 2 seconds   3306/tcp, 33060/tcp   mysql
+[jegan@tektutor.org Day2]$ docker exec -it mysql sh
+sh-4.4# ls
+bin   dev			  entrypoint.sh  home  lib64  mnt  proc  run   srv  tmp  var
+boot  docker-entrypoint-initdb.d  etc		 lib   media  opt  root  sbin  sys  usr
+sh-4.4# mysql -u root -p 
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.30 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.01 sec)
+
+mysql> CREATE DATBASE tektutor;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DATBASE tektutor' at line 1
+mysql> CREATE DATABASE tektutor;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> USE tektutor;
+Database changed
+mysql> CREATE TABLE training ( id INT, name VARCHAR(50), duration VARCHAR(50) );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> INSERT INTO training VALUES ( 1, "DevOps", "5 Days" );
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO training VALUES ( 2, "OpenShift", "5 Days" );
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM training;
++------+-----------+----------+
+| id   | name      | duration |
++------+-----------+----------+
+|    1 | DevOps    | 5 Days   |
+|    2 | OpenShift | 5 Days   |
++------+-----------+----------+
+2 rows in set (0.00 sec)
+
+mysql> exit
+Bye
+sh-4.4# exit
+exit
+</pre>
+
+## Using external volume to store application data from a mysql container
+
+```
+mkdir -p /tmp/mysql
+docker run -d --name mysql --hostname mysql -e MYSQL_ROOT_PASSWORD=root@123 -v /tmp/mysql:/var/lib/mysql mysql:latest
+docker ps
+docker exec -it mysql sh
+mysql -u root -p 
+CREATE DATABASE tektutor;
+USE tektutor;
+CREATE TABLE training (id INT, name VARCHAR(60), duration VARCHAR(60) );
+INSERT INTO training VALUES ( 1, "DevOps", "5 Days" );
+INSERT INTO training VALUES ( 2, "Microservices", "5 Days" );
+INSERT INTO training VALUES ( 3, "OpenShift", "5 Days" );
+SELECT * FROM training;
+exit
+exit
+
+docker rm -f mysql
+docker run -d --name mysql --hostname mysql -e MYSQL_ROOT_PASSWORD=root@123 -v /tmp/mysql:/var/lib/mysql mysql:latest
+docker exec -it mysql sh
+mysql -u root -p
+SHOW DATABASES;
+USE tektutor;
+SHOW TABLES;
+SELECT * FROM training;
+```
+
+When prompts for password, type 'root@123' without quotes.
