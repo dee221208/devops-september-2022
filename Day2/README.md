@@ -282,13 +282,58 @@ Expected output
 - containers depends on the OS Kernel on the Host OS where containers are running for any OS feature
 - all containers running on the same desktop/laptop/workstation/servers share the underlying hardwares resources available on that machine
 
+## What is Container Runtime?
+- Container runtime helps managing containers
+  - creating a container
+  - starting a container
+  - stoping a container
+  - restarting a container
+  - abort/kill a container
+  - delete a container
+- Example
+  - runC is a Container Runtime
+
+## What is Container Engine?
+- Container Engine depends on Container Runtime to manage containers
+- Container Engine provides easy to use user-friendly commands to manage containers and images
+- Container Engine depends on other tools to manage images just like how they depend on Container Runtime
+- end-users like us will only use Container Engine as they are easy to use, but they internally depends on other tools to get the job done
+- Example
+  - Docker is a Container Engine that depends on runC Container Runtime
+  - Podman is a Container Engine that depends on CRI-O Container Runtime
+  
 # Docker
+- is one of the Container Engines
+- Docker is developed in Go Programming Language by Docker Inc organization
+- Docker comes in 2 flavours
+  1. Community Edition (CE) - opensource or personal or non-commercial use
+  2. Enterprise Edition (EE) - Commercial use
+
+## What is Docker Hub?
+- a website that has many Docker Images
+- the website is managed by Docker Inc organization which developed Docker
+- any one would be able to contribute i.e push their custom images to Docker Hub for public use
 
 ## What are Docker Images?
+- a blueprint of a container
+- we can use existing docker images from Docker Hub
+- in certain scenarios, you may look for container images with specific tools pre-installed. But it is impossible to find every tool that projects need in a image that comes from Docker Hub. In such cases, you can pick an Docker Hub that has most of the tools you were looking for, and prepare a custom Docker image by installing all necessary tools.
+- containers are created from Docker Image
+- From one Container any number of Containers can be created
 
 ## What is a Docker Container?
+- an running instance of a Docker Image
+- tools installed on the Docker Image are available for use in Container
+- one container typically runs one application
 
 ## Docker Registries
+- Docker Registry has many collection of Docker Images
+- Docker supports 3 types of Registries
+  1. Local Registry ( /var/lib/docker folder on your system )
+  2. Private Registry ( can be setup using JFrog Artifactory or Sonatype Nexus )
+  3. Remote Registry ( Docker Hub website )
 
 ## Docker Alternatives
-
+- LXC
+- Containerd
+- Podman
