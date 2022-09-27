@@ -225,7 +225,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 </pre>
 
-## Maven Profile
+## ⛹️‍♂️ Maven Profile
 ```
 cd ~/devops-september-2022
 git pull
@@ -348,7 +348,7 @@ Expected output
 - Containerd
 - Podman
 
-## Finding the docker version
+## ⛹️‍♂️ Lab - Finding the docker version
 ```
 docker --version
 ```
@@ -359,13 +359,13 @@ Expected output
 Docker version 20.10.18, build b40c2f6
 </pre>
 
-## Troubleshooting Docker permission denied errors
+## ⛹️‍♂️ Lab - Troubleshooting Docker permission denied errors
 ```
 newgrp docker
 docker images
 ```
 
-## Listing Docker Images from your Local Docker Registry
+## ⛹️‍♂️ Lab - Listing Docker Images from your Local Docker Registry
 ```
 docker images
 ```
@@ -378,7 +378,7 @@ mysql                                     latest    43fcfca0776d   12 days ago  
 docker.bintray.io/jfrog/artifactory-oss   latest    e7053142b08e   3 weeks ago   1.24GB
 </pre>
 
-## Downloading Docker Image from Docker Hub to Local Registry
+## ⛹️‍♂️ Lab - Downloading Docker Image from Docker Hub to Local Registry
 ```
 docker pull hello-world:latest
 ```
@@ -398,7 +398,7 @@ docker.bintray.io/jfrog/artifactory-oss   latest    e7053142b08e   3 weeks ago  
 hello-world                               latest    feb5d9fea6a5   12 months ago   13.3kB
 </pre>
 
-## Deleting a Docker Image from Local Registry
+## ⛹️‍♂️ Lab - Deleting a Docker Image from Local Registry
 ```
 docker rmi hello-world:latest
 ```
@@ -412,7 +412,7 @@ Deleted: sha256:feb5d9fea6a5e9606aa995e879d862b825965ba48de054caab5ef356dc6b3412
 Deleted: sha256:e07ee1baac5fae6a26f30cabfe54a36d3402f96afda318fe0a96cec4ca393359
 </pre>
 
-## Creating your first docker container
+## ⛹️‍♂️ Lab - Creating your first docker container
 ```
 docker run hello-world:latest
 ```
@@ -449,7 +449,7 @@ For more examples and ideas, visit:
 </pre>
 
 
-## Listing currently running containers
+## ⛹️‍♂️ Lab - Listing currently running containers
 ```
 docker ps
 ```
@@ -462,7 +462,7 @@ ad3588fe2258   mysql:latest                                     "docker-entrypoi
 1cbbabada110   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   21 hours ago   Up 21 hours   0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
 </pre>
 
-## Listing all containers including the one that exited
+## ⛹️‍♂️ Lab - Listing all containers including the one that exited
 ```
 docker ps -a
 ```
@@ -477,7 +477,7 @@ ad3588fe2258   mysql:latest                                     "docker-entrypoi
 </pre>
 
 
-## Creating a container and running it in background
+## ⛹️‍♂️ Lab - Creating a container and running it in background
 ```
 docker run -dit --name ubuntu1 --hostname ubuntu1 ubuntu:16.04 /bin/bash
 docker ps
