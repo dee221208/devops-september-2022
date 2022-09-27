@@ -1032,3 +1032,57 @@ Expected output
 bf3c30180fb3
 b201614504ec
 </pre>
+
+## Creating two custom networks with our own subnet
+```
+docker network create my-network-1 --subnet 172.18.10.0/24
+docker network create my-network-2 --subnet 172.19.10.0/24
+docker network ls
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org Day2]$ <b>docker network create my-network-1 --subnet 172.18.10.0/24</b>
+30d962fe0dc31b043f3b09e706fdc5a4f115873677aa0ecf0d2a1454235be251
+[jegan@tektutor.org Day2]$ <b>docker network create my-network-2 --subnet 172.19.10.0/24</b>
+c2bb5358096307b1095a8bf978f7b3d4ce1665c7e3ff5b0013fe1183cce39893
+
+[jegan@tektutor.org Day2]$ <b>docker network ls</b>
+NETWORK ID     NAME           DRIVER    SCOPE
+f46061f25a18   bridge         bridge    local
+1c9881eff190   host           host      local
+30d962fe0dc3   my-network-1   bridge    local
+c2bb53580963   my-network-2   bridge    local
+e102cd9eb503   none           null      local
+</pre>
+
+## Creating a container and connect that new container to our my-network-1
+```
+docker run -d --name c1 --hostname c1 --network=my-network-1 nginx:latest
+docker run -d --name c2 --hostname c2 --network=my-network-2 nginx:latest
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org hello]$ <b>docker run -d --name c1 --hostname c1 --network=my-network-1 nginx:latest</b>
+5cf238df72f6f8eb28a9d6492a2e8e27b2d7b595d71ea91b1c8ea9c57f7c985a
+[jegan@tektutor.org hello]$ <b>docker ps</b>
+CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS     NAMES
+5cf238df72f6   nginx:latest   "/docker-entrypoint.…"   3 seconds ago   Up 2 seconds   80/tcp    c1
+[jegan@tektutor.org hello]$ <b>docker inspect c1 | grep IPA</b>
+            "SecondaryIPAddresses": null,
+            "IPAddress": "",
+                    "IPAMConfig": null,
+                    "IPAddress": "172.18.10.2",
+[jegan@tektutor.org hello]$ <b>docker run -d --name c2 --hostname c2 --network=my-network-2 nginx:latest</b>
+e80ddc8be09856883565d70daf255ae0ec734722489cd85e38e013727bdb6904
+[jegan@tektutor.org hello]$ <b>docker ps</b>
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS     NAMES
+e80ddc8be098   nginx:latest   "/docker-entrypoint.…"   2 seconds ago    Up 1 second     80/tcp    c2
+5cf238df72f6   nginx:latest   "/docker-entrypoint.…"   36 seconds ago   Up 35 seconds   80/tcp    c1
+[jegan@tektutor.org hello]$ <b>docker inspect c2 | grep IPA</b>
+            "SecondaryIPAddresses": null,
+            "IPAddress": "",
+                    "IPAMConfig": null,
+                    "IPAddress": "172.19.10.2",
+</pre>
