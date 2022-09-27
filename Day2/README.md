@@ -224,3 +224,71 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 [INFO] Finished at: 2022-09-26T22:32:07-07:00
 [INFO] ------------------------------------------------------------------------
 </pre>
+
+## Maven Profile
+```
+cd ~/devops-september-2022
+git pull
+cd Day2/profiles
+
+mvn test -P test
+```
+
+Expected output
+<pre>
+
+</pre>
+
+## Hypervisor
+- aka virtualization technology
+- heavy weight Virtualization
+   - Guest Operating System (Virtual Machine)
+      - they need to allocated dedicated hardware resources 
+         - CPU Cores
+         - RAM
+         - Hard Disk Storage
+- its a combination of hardware & software technology
+- General Purpose Processors (x86_64 bit Processor)
+   - AMD
+     - AMD-V (Virtualization Feature)
+   - Intel
+     - VT-X (Virtualization Feature)
+
+- Two types
+  1. Type 1 ( Bare Metal Hypervisors )
+     - example VMWare vSphere/vCenter
+     - Microsoft Hyper-V
+  2. Type 2
+     - Example
+       VMWare 
+         - Fusion (Mac OS-X)
+         - Workstation ( Windows/Linux/Mac )
+       Oracle
+         - VirtualBox (Free - Windows/Linux/Mac)
+       
+       
+## Container Technology
+- application virtualization technology
+- each container is nothing but an application process
+- each container runs in its own namespace
+- every container has got its own network stack (7 OSI Layers)
+- container is not an Operating System
+- every container get its own IP and file system
+- containers looks like a Virtual Machine but one container can host/run only one application
+- every container gets its own ports ( 0 - 65535 ports )
+- hence technically it is possible to run 10 tomcat web server on the same machine all listing at port 8080
+- containers don't need to be allocated with dedicated CPU, RAM or Storage
+- container technology is ligh weight virtualization technology
+- containers depends on the OS Kernel on the Host OS where containers are running for any OS feature
+- all containers running on the same desktop/laptop/workstation/servers share the underlying hardwares resources available on that machine
+
+# Docker
+
+## What are Docker Images?
+
+## What is a Docker Container?
+
+## Docker Registries
+
+## Docker Alternatives
+
