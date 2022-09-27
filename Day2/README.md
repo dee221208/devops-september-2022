@@ -1151,7 +1151,7 @@ e80ddc8be098   nginx:latest   "/docker-entrypoint.…"   2 seconds ago    Up 1 s
                     "IPAddress": "172.19.10.2",
 </pre>
 
-## Inspecting Docker Image
+## ⛹️‍♂️ Lab - Inspecting Docker Image
 ```
 docker image inspect ubuntu:16.04
 ```
@@ -1452,22 +1452,32 @@ exit
 </pre>
 
 
-## Let's create mysql db server container and store db and tables in the container storage
+## ⛹️‍♂️ Lab -  Let's create mysql db server container and store db and tables in the container storage
 ```
+docker run -d --name mysql --hostname mysql -e MYSQL_ROOT_PASSWORD=root@123 mysql:latest
+docker ps
+docker exec -it mysql sh
+mysql -u root -p
+SHOW DATABASES;
+USE tektutor;
+CREATE TABLE training ( id INT, name VARCHAR(50), duration VARCHAR(50) );
+INSERT INTO training VALUES ( 1, "DevOps", "5 Days" );
+INSERT INTO training VALUES ( 2, "OpenShift", "5 Days" );
+SELECT * FROM training;
 ```
 
 Expected output
 <pre>
-[jegan@tektutor.org Day2]$ docker run -d --name mysql --hostname mysql -e MYSQL_ROOT_PASSWORD=root@123 mysql:latest
+[jegan@tektutor.org Day2]$ <b>docker run -d --name mysql --hostname mysql -e MYSQL_ROOT_PASSWORD=root@123 mysql:latest</b>
 ee37547bcbd0048a1e163f5324465c0cf5b20874b9cbda919ebf07566a98b3c5
-[jegan@tektutor.org Day2]$ docker ps
+[jegan@tektutor.org Day2]$ <b>docker ps</b>
 CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS                 NAMES
 ee37547bcbd0   mysql:latest   "docker-entrypoint.s…"   2 seconds ago   Up 2 seconds   3306/tcp, 33060/tcp   mysql
-[jegan@tektutor.org Day2]$ docker exec -it mysql sh
+[jegan@tektutor.org Day2]$ <b>docker exec -it mysql sh</b>
 sh-4.4# ls
 bin   dev			  entrypoint.sh  home  lib64  mnt  proc  run   srv  tmp  var
 boot  docker-entrypoint-initdb.d  etc		 lib   media  opt  root  sbin  sys  usr
-sh-4.4# mysql -u root -p 
+sh-4.4# <b>mysql -u root -p</b>
 Enter password: 
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 8
@@ -1481,7 +1491,7 @@ owners.
 
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
-mysql> SHOW DATABASES;
+mysql> <b>SHOW DATABASES;</b>
 +--------------------+
 | Database           |
 +--------------------+
@@ -1492,23 +1502,18 @@ mysql> SHOW DATABASES;
 +--------------------+
 4 rows in set (0.01 sec)
 
-mysql> CREATE DATBASE tektutor;
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DATBASE tektutor' at line 1
-mysql> CREATE DATABASE tektutor;
-Query OK, 1 row affected (0.00 sec)
-
-mysql> USE tektutor;
+mysql> <b>USE tektutor;</b>
 Database changed
-mysql> CREATE TABLE training ( id INT, name VARCHAR(50), duration VARCHAR(50) );
+mysql> <b>CREATE TABLE training ( id INT, name VARCHAR(50), duration VARCHAR(50) );</b>
 Query OK, 0 rows affected (0.03 sec)
 
-mysql> INSERT INTO training VALUES ( 1, "DevOps", "5 Days" );
+mysql> <b>INSERT INTO training VALUES ( 1, "DevOps", "5 Days" );</b>
 Query OK, 1 row affected (0.02 sec)
 
-mysql> INSERT INTO training VALUES ( 2, "OpenShift", "5 Days" );
+mysql> <b>INSERT INTO training VALUES ( 2, "OpenShift", "5 Days" );</b>
 Query OK, 1 row affected (0.00 sec)
 
-mysql> SELECT * FROM training;
+mysql> <b>SELECT * FROM training;</b>
 +------+-----------+----------+
 | id   | name      | duration |
 +------+-----------+----------+
@@ -1517,13 +1522,13 @@ mysql> SELECT * FROM training;
 +------+-----------+----------+
 2 rows in set (0.00 sec)
 
-mysql> exit
+mysql> <b>exit</b>
 Bye
-sh-4.4# exit
+sh-4.4# <b>exit</b>
 exit
 </pre>
 
-## Using external volume to store application data from a mysql container
+## ⛹️‍♂️ Lab -  Using external volume to store application data from a mysql container
 
 ```
 mkdir -p /tmp/mysql
