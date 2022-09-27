@@ -967,3 +967,37 @@ Expected output
 02:42:ac:11:00:04
 </pre>
 
+## IP Addresses assigned to containers are Private and dynamic IPs
+```
+docker inspect nginx1 | grep IPA
+docker stop nginx1
+docker run -d --name nginx4 --hostname nginx4 nginx:latest
+docker inspect nginx4 | grep IPA
+docker start nginx1
+docker inspect nginx1 | grep IPA
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org Day2]$ <b>docker inspect nginx1 | grep IPA</b>
+            "SecondaryIPAddresses": null,
+            "IPAddress": "172.17.0.2",
+                    "IPAMConfig": null,
+                    "IPAddress": "172.17.0.2",
+[jegan@tektutor.org Day2]$ <b>docker stop nginx1</b>
+nginx1
+[jegan@tektutor.org Day2]$ <b>docker run -d --name nginx4 --hostname nginx4 nginx:latest</b>
+3f0dcb8dec6deda1fe4570d24359bcb48d596b176e6958d454468676c95b1ba3
+[jegan@tektutor.org Day2]$ <b>docker inspect nginx4 | grep IPA</b>
+            "SecondaryIPAddresses": null,
+            "IPAddress": "172.17.0.2",
+                    "IPAMConfig": null,
+                    "IPAddress": "172.17.0.2",
+[jegan@tektutor.org Day2]$ <b>docker start nginx1</b>
+nginx1
+[jegan@tektutor.org Day2]$ <b>docker inspect nginx1 | grep IPA</b>
+            "SecondaryIPAddresses": null,
+            "IPAddress": "172.17.0.5",
+                    "IPAMConfig": null,
+                    "IPAddress": "172.17.0.5",
+</pre>
