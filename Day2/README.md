@@ -348,6 +348,18 @@ Expected output
 - Containerd
 - Podman
 
+## What kind of applications can be containerized?
+- We can run any blocking blocking applications
+- blocking in the sense, applications that keeps running forever
+- For example
+   - unix/linux shell
+   - Web Servers
+   - App Servers
+   - DB Servers
+   - SOAP API
+   - REST API
+   - Microservice
+
 ## ⛹️‍♂️ Lab - Finding the docker version
 ```
 docker --version
