@@ -1001,3 +1001,34 @@ nginx1
                     "IPAMConfig": null,
                     "IPAddress": "172.17.0.5",
 </pre>
+
+## Docker Network Model
+
+### ⛹️‍♂️ Lab - Listing docker networks
+```
+docker network ls
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org Day2]$ <b>docker network ls</b>
+NETWORK ID     NAME      DRIVER    SCOPE
+f46061f25a18   bridge    bridge    local
+1c9881eff190   host      host      local
+e102cd9eb503   none      null      local
+</pre>
+
+## ⛹️‍♂️ Lab - Deleting multiple containers with a single command without using the container names
+```
+docker rm -f $(docker ps -aq)
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org Day2]$ <b>docker rm -f $(docker ps -aq)</b>
+7bee17ed740f
+3f0dcb8dec6d
+6f65a1fbc158
+bf3c30180fb3
+b201614504ec
+</pre>
