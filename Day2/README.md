@@ -1,6 +1,6 @@
-# Day2
+# Day 2
 
-## Compiling a Multi-module project
+## ⛹️‍♂️ Lab - Compiling a Multi-module project
 ```
 cd ~/devops-september-2022
 git pull
