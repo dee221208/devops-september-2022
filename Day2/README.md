@@ -1389,3 +1389,7 @@ Web Server 2
 Web Server 3
 ```
 
+In case, you wish to use other Load Balancing algorithms, you may refer this
+<pre>
+https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/
+</pre>
