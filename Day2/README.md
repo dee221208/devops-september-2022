@@ -348,7 +348,7 @@ Expected output
 - Containerd
 - Podman
 
-## Find the docker version
+## Finding the docker version
 ```
 docker --version
 ```
@@ -357,4 +357,23 @@ Expected output
 <pre>
 [jegan@tektutor.org Day2]$ <b>docker --version</b>
 Docker version 20.10.18, build b40c2f6
+</pre>
+
+## Troubleshooting Docker permission denied errors
+```
+newgrp docker
+docker images
+```
+
+## Listing Docker Images from your Local Docker Registry
+```
+docker images
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org Day2]$ <b>docker images</b>
+REPOSITORY                                TAG       IMAGE ID       CREATED       SIZE
+mysql                                     latest    43fcfca0776d   12 days ago   449MB
+docker.bintray.io/jfrog/artifactory-oss   latest    e7053142b08e   3 weeks ago   1.24GB
 </pre>
