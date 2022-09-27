@@ -587,3 +587,24 @@ CONTAINER ID   IMAGE                                            COMMAND         
 ad3588fe2258   mysql:latest                                     "docker-entrypoint.s…"   21 hours ago     Up 21 hours   3306/tcp, 33060/tcp                                             mysql
 1cbbabada110   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   21 hours ago     Up 21 hours   0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
 </pre>
+
+## ⛹️‍♂️ Lab - Delete a running container graciously
+```
+docker stop ubuntu1
+docker rm ubuntu1
+```
+
+Expected output
+<pre>
+jegan@tektutor.org Day2]$ <b>docker rm ubuntu1</b>
+Error response from daemon: You cannot remove a running container 517846b24a6a775d9e192d41cb68a0f74d43062fe321525d1e2ceb8c2e9378e6. Stop the container before attempting removal or force remove
+[jegan@tektutor.org Day2]$ <b>docker stop ubuntu1</b>
+ubuntu1
+[jegan@tektutor.org Day2]$ <b>docker rm ubuntu1</b>
+ubuntu1
+[jegan@tektutor.org Day2]$ <b>docker ps -a</b>
+CONTAINER ID   IMAGE                                            COMMAND                  CREATED          STATUS                      PORTS                                                           NAMES
+9db646569c40   hello-world:latest                               "/hello"                 18 minutes ago   Exited (0) 18 minutes ago                                                                   dazzling_lalande
+ad3588fe2258   mysql:latest                                     "docker-entrypoint.s…"   21 hours ago     Up 21 hours                 3306/tcp, 33060/tcp                                             mysql
+1cbbabada110   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   21 hours ago     Up 21 hours                 0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
+</pre>
