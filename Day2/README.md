@@ -1393,3 +1393,41 @@ In case, you wish to use other Load Balancing algorithms, you may refer this
 <pre>
 https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/
 </pre>
+
+
+## Port-forwarding to expose the container service to outside world
+```
+cd ~/devops-september-2022
+git pull
+cd Day2/load-balancer
+
+docker rm -f lb
+docker run -d --name lb --hostname lb -p 80:80 nginx:latest
+docker cp nginx.conf lb:/etc/nginx/nginx.conf
+docker restart lb
+docker ps
+```
+
+## Renaming your lb container
+```
+docker ps
+docker rename lb load_balancer
+docker ps
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org load-balancer]$ <b>docker ps</b>
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS                               NAMES
+<b>4100926d16f3   nginx:latest   "/docker-entrypoint.…"   7 minutes ago    Up 6 minutes    0.0.0.0:80->80/tcp, :::80->80/tcp   lb</b>
+369d444ba148   nginx:latest   "/docker-entrypoint.…"   50 minutes ago   Up 50 minutes   80/tcp                              web3
+8a9a3f9b75aa   nginx:latest   "/docker-entrypoint.…"   50 minutes ago   Up 50 minutes   80/tcp                              web2
+d5646d8a3bd0   nginx:latest   "/docker-entrypoint.…"   50 minutes ago   Up 50 minutes   80/tcp                              web1
+[jegan@tektutor.org load-balancer]$ <b>docker rename lb load_balancer</b>
+[jegan@tektutor.org load-balancer]$ <b>docker ps</b>
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS                               NAMES
+<b>4100926d16f3   nginx:latest   "/docker-entrypoint.…"   7 minutes ago    Up 7 minutes    0.0.0.0:80->80/tcp, :::80->80/tcp   load_balancer</b>
+369d444ba148   nginx:latest   "/docker-entrypoint.…"   50 minutes ago   Up 50 minutes   80/tcp                              web3
+8a9a3f9b75aa   nginx:latest   "/docker-entrypoint.…"   50 minutes ago   Up 50 minutes   80/tcp                              web2
+d5646d8a3bd0   nginx:latest   "/docker-entrypoint.…"   50 minutes ago   Up 50 minutes   80/tcp                              web1
+</pre>
