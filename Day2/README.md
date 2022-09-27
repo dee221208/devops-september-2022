@@ -1257,7 +1257,7 @@ Expected output
 /var/lib/docker
 </pre>
 
-## Setting up a Load Balancer using nginx that forwards the traffic to 3 web servers in a round-robin fashion
+## ⛹️‍♂️ Lab - Setting up a Load Balancer using nginx that forwards the traffic to 3 web servers in a round-robin fashion
 ```
 docker run -d --name web1 --hostname web1 nginx:latest
 docker run -d --name web2 --hostname web2 nginx:latest
@@ -1395,7 +1395,7 @@ https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/
 </pre>
 
 
-## Port-forwarding to expose the container service to outside world
+## ⛹️‍♂️ Lab - Port-forwarding to expose the container service to outside world
 ```
 cd ~/devops-september-2022
 git pull
@@ -1408,7 +1408,7 @@ docker restart lb
 docker ps
 ```
 
-## Renaming your lb container
+## ⛹️‍♂️ Lab - Renaming your lb container
 ```
 docker ps
 docker rename lb load_balancer
@@ -1430,4 +1430,23 @@ CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS  
 369d444ba148   nginx:latest   "/docker-entrypoint.…"   50 minutes ago   Up 50 minutes   80/tcp                              web3
 8a9a3f9b75aa   nginx:latest   "/docker-entrypoint.…"   50 minutes ago   Up 50 minutes   80/tcp                              web2
 d5646d8a3bd0   nginx:latest   "/docker-entrypoint.…"   50 minutes ago   Up 50 minutes   80/tcp                              web1
+</pre>
+
+
+## ⛹️‍♂️ Lab - Creating a container interactive/foreground mode
+```
+docker run -it --name ubuntu1 --hostname ubuntu1 ubuntu:16.04 /bin/bash
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org load-balancer]$ <b>docker run -it --name ubuntu1 --hostname ubuntu1 ubuntu:16.04 /bin/bash</b>
+root@ubuntu1:/# ls
+bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@ubuntu1:/# hostname -i
+172.17.0.6
+root@ubuntu1:/# hostname
+ubuntu1
+root@ubuntu1:/# exit
+exit
 </pre>
