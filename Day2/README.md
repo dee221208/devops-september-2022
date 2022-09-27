@@ -475,3 +475,29 @@ CONTAINER ID   IMAGE                                            COMMAND         
 ad3588fe2258   mysql:latest                                     "docker-entrypoint.s…"   20 hours ago    Up 20 hours                3306/tcp, 33060/tcp                                             mysql
 1cbbabada110   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   21 hours ago    Up 21 hours                0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
 </pre>
+
+
+## Creating a container and running it in background
+```
+docker run -dit --name ubuntu1 --hostname ubuntu1 ubuntu:16.04 /bin/bash
+docker ps
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org Day2]$ <b>docker run -dit --name ubuntu1 --hostname ubuntu1 ubuntu:16.04 /bin/bash</b>
+Unable to find image 'ubuntu:16.04' locally
+16.04: Pulling from library/ubuntu
+58690f9b18fc: Pull complete 
+b51569e7c507: Pull complete 
+da8ef40b9eca: Pull complete 
+fb15d46c38dc: Pull complete 
+Digest: sha256:91bd29a464fdabfcf44e29e1f2a5f213c6dfa750b6290e40dd6998ac79da3c41
+Status: Downloaded newer image for ubuntu:16.04
+517846b24a6a775d9e192d41cb68a0f74d43062fe321525d1e2ceb8c2e9378e6
+[jegan@tektutor.org Day2]$ <b>docker ps</b>
+CONTAINER ID   IMAGE                                            COMMAND                  CREATED         STATUS         PORTS                                                           NAMES
+<b>517846b24a6a   ubuntu:16.04                                     "/bin/bash"              6 seconds ago   Up 5 seconds                                                                   ubuntu1</b>
+ad3588fe2258   mysql:latest                                     "docker-entrypoint.s…"   20 hours ago    Up 20 hours    3306/tcp, 33060/tcp                                             mysql
+1cbbabada110   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   21 hours ago    Up 21 hours    0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
+</pre>
