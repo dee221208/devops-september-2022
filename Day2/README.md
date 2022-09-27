@@ -642,3 +642,20 @@ ad3588fe2258   mysql:latest                                     "docker-entrypoi
 [jegan@tektutor.org Day2]$ <b>docker rm -f mysql</b>
 mysql
 </pre>
+
+## Deleting multiple containers with a single command
+```
+docker ps -a
+docker rm -f artifactory dazzling_lalande
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org Day2]$ <b>docker ps -a</b>
+CONTAINER ID   IMAGE                                            COMMAND                  CREATED          STATUS                      PORTS                                                           NAMES
+9db646569c40   hello-world:latest                               "/hello"                 30 minutes ago   Exited (0) 30 minutes ago                                                                   dazzling_lalande
+1cbbabada110   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   21 hours ago     Up 21 hours                 0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
+[jegan@tektutor.org Day2]$ <b>docker rm -f artifactory dazzling_lalande</b>
+artifactory
+dazzling_lalande
+</pre>
