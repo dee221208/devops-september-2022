@@ -502,7 +502,7 @@ ad3588fe2258   mysql:latest                                     "docker-entrypoi
 1cbbabada110   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   21 hours ago    Up 21 hours    0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
 </pre>
 
-## Opening a shell inside a running container
+## ⛹️‍♂️ Lab - Opening a shell inside a running container
 ```
 docker ps
 ```
@@ -525,7 +525,7 @@ root@ubuntu1:/# <b>exit</b>
 exit
 </pre>
 
-## Stopping a running container
+## ⛹️‍♂️ Lab - Stopping a running container
 ```
 docker ps
 docker stop ubuntu1
