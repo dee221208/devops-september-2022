@@ -1362,3 +1362,29 @@ Testing the load balancer on your CentOS Chrome Web browser
 ```
 172.17.0.5
 ```
+
+To understand from which webserver the web page coming from, we will customize the web page in every nginx containers
+```
+cd ~/devops-september-2022
+git pull
+cd Day2/load-balancer
+
+echo "Web Server 1" > index.html
+docker cp index.html web1:/usr/share/nginx/html/index.html
+
+echo "Web Server 2" > index.html
+docker cp index.html web2:/usr/share/nginx/html/index.html
+
+echo "Web Server 3" > index.html
+docker cp index.html web3:/usr/share/nginx/html/index.html
+```
+
+See if the lb is using round robin algorithm while forwarding the calls to the web server containers
+[jegan@tektutor.org load-balancer]$ curl 172.17.0.5
+Web Server 1
+[jegan@tektutor.org load-balancer]$ curl 172.17.0.5
+Web Server 2
+[jegan@tektutor.org load-balancer]$ curl 172.17.0.5
+Web Server 3
+```
+
