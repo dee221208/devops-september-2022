@@ -1345,3 +1345,20 @@ http {
 
 }
 </pre>
+
+We need to copy the nginx.conf file inside the lb container as shown below
+```
+docker cp nginx.conf lb:/etc/nginx/nginx.conf
+docker restart lb
+docker ps 
+```
+
+Testing the load balancer on your terminal
+```
+curl http://172.17.0.5:80
+```
+
+Testing the load balancer on your CentOS Chrome Web browser
+```
+172.17.0.5
+```
