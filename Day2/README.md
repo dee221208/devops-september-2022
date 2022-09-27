@@ -627,3 +627,18 @@ CONTAINER ID   IMAGE                                            COMMAND         
 ad3588fe2258   mysql:latest                                     "docker-entrypoint.s…"   21 hours ago     Up 21 hours                 3306/tcp, 33060/tcp                                             mysql
 1cbbabada110   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   21 hours ago     Up 21 hours                 0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
 </pre>
+
+## Deleting a running container forcibly without stopped it first
+```
+docker rm -f mysql
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org Day2]$ <b>docker ps </b>
+CONTAINER ID   IMAGE                                            COMMAND                  CREATED        STATUS        PORTS                                                           NAMES
+ad3588fe2258   mysql:latest                                     "docker-entrypoint.s…"   21 hours ago   Up 21 hours   3306/tcp, 33060/tcp                                             mysql
+1cbbabada110   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   21 hours ago   Up 21 hours   0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
+[jegan@tektutor.org Day2]$ <b>docker rm -f mysql</b>
+mysql
+</pre>
