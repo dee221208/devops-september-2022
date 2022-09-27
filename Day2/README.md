@@ -967,7 +967,7 @@ Expected output
 02:42:ac:11:00:04
 </pre>
 
-## IP Addresses assigned to containers are Private and dynamic IPs
+## ⛹️‍♂️ Lab - IP Addresses assigned to containers are Private and dynamic IPs
 ```
 docker inspect nginx1 | grep IPA
 docker stop nginx1
