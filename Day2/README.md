@@ -347,3 +347,14 @@ Expected output
 - LXC
 - Containerd
 - Podman
+
+## Find the docker version
+```
+docker --version
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org Day2]$ <b>docker --version</b>
+Docker version 20.10.18, build b40c2f6
+</pre>
