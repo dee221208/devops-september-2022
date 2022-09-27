@@ -1051,8 +1051,8 @@ c2bb5358096307b1095a8bf978f7b3d4ce1665c7e3ff5b0013fe1183cce39893
 NETWORK ID     NAME           DRIVER    SCOPE
 f46061f25a18   bridge         bridge    local
 1c9881eff190   host           host      local
-30d962fe0dc3   my-network-1   bridge    local
-c2bb53580963   my-network-2   bridge    local
+<b>30d962fe0dc3   my-network-1   bridge    local
+c2bb53580963   my-network-2   bridge    local</b>
 e102cd9eb503   none           null      local
 </pre>
 
