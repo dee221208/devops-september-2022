@@ -1033,7 +1033,7 @@ bf3c30180fb3
 b201614504ec
 </pre>
 
-## Creating two custom networks with our own subnet
+## ⛹️‍♂️ Lab - Creating two custom networks with our own subnet
 ```
 docker network create my-network-1 --subnet 172.18.10.0/24
 docker network create my-network-2 --subnet 172.19.10.0/24
@@ -1056,7 +1056,7 @@ c2bb53580963   my-network-2   bridge    local
 e102cd9eb503   none           null      local
 </pre>
 
-## Creating a container and connect that new container to our my-network-1
+## ⛹️‍♂️ Lab - Creating a container and connect that new container to our my-network-1
 ```
 docker run -d --name c1 --hostname c1 --network=my-network-1 nginx:latest
 docker run -d --name c2 --hostname c2 --network=my-network-2 nginx:latest
