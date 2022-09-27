@@ -695,3 +695,30 @@ CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS  
 bf3c30180fb3   nginx:latest   "/docker-entrypoint.…"   7 seconds ago    Up 6 seconds    80/tcp    nginx2
 b201614504ec   nginx:latest   "/docker-entrypoint.…"   13 seconds ago   Up 11 seconds   80/tcp    nginx1
 </pre>
+
+## ⛹️‍♂️ Lab - Finding the IP Address of a running container
+```
+docker inspect nginx1 | grep IPA
+docker inspect nginx2 | grep IPA
+docker inspect nginx3 | grep IPA
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org Day2]$ <b>docker inspect nginx1 | grep IPA</b>
+            "SecondaryIPAddresses": null,
+            "IPAddress": "172.17.0.2",
+                    "IPAMConfig": null,
+                    "IPAddress": "172.17.0.2",
+[jegan@tektutor.org Day2]$ <b>docker inspect nginx2 | grep IPA</b>
+            "SecondaryIPAddresses": null,
+            "IPAddress": "172.17.0.3",
+                    "IPAMConfig": null,
+                    "IPAddress": "172.17.0.3",
+[jegan@tektutor.org Day2]$ <b>docker inspect nginx3 | grep IPA</b>
+            "SecondaryIPAddresses": null,
+            "IPAddress": "172.17.0.4",
+                    "IPAMConfig": null,
+                    "IPAddress": "172.17.0.4",
+</pre>
+
