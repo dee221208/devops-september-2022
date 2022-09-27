@@ -447,3 +447,31 @@ Share images, automate workflows, and more with a free Docker ID:
 For more examples and ideas, visit:
  https://docs.docker.com/get-started/
 </pre>
+
+
+## Listing currently running containers
+```
+docker ps
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org Day2]$ <b>docker ps</b>
+CONTAINER ID   IMAGE                                            COMMAND                  CREATED        STATUS        PORTS                                                           NAMES
+ad3588fe2258   mysql:latest                                     "docker-entrypoint.s…"   20 hours ago   Up 20 hours   3306/tcp, 33060/tcp                                             mysql
+1cbbabada110   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   21 hours ago   Up 21 hours   0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
+</pre>
+
+## Listing all containers including the one that exited
+```
+docker ps -a
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org Day2]$ docker ps -a
+CONTAINER ID   IMAGE                                            COMMAND                  CREATED         STATUS                     PORTS                                                           NAMES
+<b>9db646569c40   hello-world:latest                               "/hello"                 2 minutes ago   Exited (0) 2 minutes ago                                                                   dazzling_lalande</b>
+ad3588fe2258   mysql:latest                                     "docker-entrypoint.s…"   20 hours ago    Up 20 hours                3306/tcp, 33060/tcp                                             mysql
+1cbbabada110   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   21 hours ago    Up 21 hours                0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
+</pre>
