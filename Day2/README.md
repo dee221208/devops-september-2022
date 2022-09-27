@@ -1380,6 +1380,7 @@ docker cp index.html web3:/usr/share/nginx/html/index.html
 ```
 
 See if the lb is using round robin algorithm while forwarding the calls to the web server containers
+```
 [jegan@tektutor.org load-balancer]$ curl 172.17.0.5
 Web Server 1
 [jegan@tektutor.org load-balancer]$ curl 172.17.0.5
