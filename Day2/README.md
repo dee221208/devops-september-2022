@@ -524,3 +524,25 @@ bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  s
 root@ubuntu1:/# <b>exit</b>
 exit
 </pre>
+
+## Stopping a running container
+```
+docker ps
+docker stop ubuntu1
+docker ps
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org Day2]$ <b>docker ps</b>
+CONTAINER ID   IMAGE                                            COMMAND                  CREATED         STATUS         PORTS                                                           NAMES
+<b>517846b24a6a   ubuntu:16.04                                     "/bin/bash"              6 minutes ago   Up 6 minutes                                                                   ubuntu1</b>
+ad3588fe2258   mysql:latest                                     "docker-entrypoint.s…"   21 hours ago    Up 21 hours    3306/tcp, 33060/tcp                                             mysql
+1cbbabada110   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   21 hours ago    Up 21 hours    0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
+[jegan@tektutor.org Day2]$ <b>docker stop ubuntu1</b>
+ubuntu1
+[jegan@tektutor.org Day2]$ <b>docker ps</b>
+CONTAINER ID   IMAGE                                            COMMAND                  CREATED        STATUS        PORTS                                                           NAMES
+ad3588fe2258   mysql:latest                                     "docker-entrypoint.s…"   21 hours ago   Up 21 hours   3306/tcp, 33060/tcp                                             mysql
+1cbbabada110   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   21 hours ago   Up 21 hours   0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
+</pre>
