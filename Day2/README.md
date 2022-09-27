@@ -956,3 +956,14 @@ Expected output
 172.17.0.4
 </pre>
 
+## ⛹️‍♂️ Lab - Retrieving Mac Address of a container
+```
+docker inspect -f "{{.NetworkSettings.MacAddress}}" nginx3
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org Day2]$ <b>docker inspect -f "{{.NetworkSettings.MacAddress}}" nginx3</b>
+02:42:ac:11:00:04
+</pre>
+
