@@ -301,7 +301,17 @@ Expected output
 - Example
   - Docker is a Container Engine that depends on runC Container Runtime
   - Podman is a Container Engine that depends on CRI-O Container Runtime
-  
+
+## Linux Kernel Features that enable Container Technology
+1. Namespace
+   - helps in isolating one container from accessing other container resources
+   - just like how Hypervisors isolate one Virtual Machine from access other Virtual Machine resources
+2. Control Group (CGroup)
+   - we should be able to apply resource quota restrictions for each container optionally
+   - For instance
+      - we could restrict a container to use maximum 25% CPU ( in a system with 4 core - it can only 1 core )
+      - we could restrict a container to use upto 1GB RAM
+
 # Docker
 - is one of the Container Engines
 - Docker is developed in Go Programming Language by Docker Inc organization
