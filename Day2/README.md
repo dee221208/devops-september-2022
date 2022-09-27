@@ -384,6 +384,70 @@ newgrp docker
 docker images
 ```
 
+## ⛹️‍♂️ Lab - Finding more information about your docker setup
+```
+docker info
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org hello]$ <b>docker info</b>
+Client:
+ Context:    default
+ Debug Mode: false
+ Plugins:
+  app: Docker App (Docker Inc., v0.9.1-beta3)
+  buildx: Docker Buildx (Docker Inc., v0.9.1-docker)
+  compose: Docker Compose (Docker Inc., v2.10.2)
+  scan: Docker Scan (Docker Inc., v0.17.0)
+
+Server:
+ Containers: 2
+  Running: 2
+  Paused: 0
+  Stopped: 0
+ Images: 5
+ Server Version: 20.10.18
+ Storage Driver: overlay2
+  Backing Filesystem: xfs
+  Supports d_type: true
+  Native Overlay Diff: true
+  userxattr: false
+ Logging Driver: json-file
+ Cgroup Driver: cgroupfs
+ Cgroup Version: 1
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog
+ Swarm: inactive
+ Runtimes: io.containerd.runc.v2 io.containerd.runtime.v1.linux runc
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: 9cd3357b7fd7218e4aec3eae239db1f68a5a6ec6
+ runc version: v1.1.4-0-g5fd4c4d
+ init version: de40ad0
+ Security Options:
+  seccomp
+   Profile: default
+ Kernel Version: 3.10.0-1160.el7.x86_64
+ Operating System: CentOS Linux 7 (Core)
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 4
+ Total Memory: 15.49GiB
+ Name: tektutor.org
+ ID: I6RI:7BJT:YI4Y:3WM4:MWSL:3JN7:ENZB:D3PP:AQA6:JCZJ:WFLT:7WZI
+ <b>Docker Root Dir: /var/lib/docker</b>
+ Debug Mode: false
+ Registry: https://index.docker.io/v1/
+ Labels:
+ Experimental: false
+ Insecure Registries:
+  127.0.0.0/8
+ Live Restore Enabled: false
+</pre>
+
 ## ⛹️‍♂️ Lab - Listing Docker Images from your Local Docker Registry
 ```
 docker images
