@@ -1086,3 +1086,104 @@ e80ddc8be098   nginx:latest   "/docker-entrypoint.…"   2 seconds ago    Up 1 s
                     "IPAMConfig": null,
                     "IPAddress": "172.19.10.2",
 </pre>
+
+## Inspecting Docker Image
+```
+docker image inspect ubuntu:16.04
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org hello]$ <b>docker image inspect ubuntu:16.04</b>
+[
+    {
+        "Id": "sha256:b6f50765242581c887ff1acc2511fa2d885c52d8fb3ac8c4bba131fd86567f2e",
+        "RepoTags": [
+            "ubuntu:16.04"
+        ],
+        "RepoDigests": [
+            "ubuntu@sha256:91bd29a464fdabfcf44e29e1f2a5f213c6dfa750b6290e40dd6998ac79da3c41"
+        ],
+        "Parent": "",
+        "Comment": "",
+        "Created": "2021-08-31T01:21:30.672229355Z",
+        "Container": "02b9813c58908ec4e449545066e8dfcff693ced2765493be69f64749f8b5ec70",
+        "ContainerConfig": {
+            "Hostname": "02b9813c5890",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "/bin/sh",
+                "-c",
+                "#(nop) ",
+                "CMD [\"/bin/bash\"]"
+            ],
+            "Image": "sha256:3bdb1b7ec7d0b0427c63c46bfc1b2e7e953771af26648b34d0bec9e558709a64",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "DockerVersion": "20.10.7",
+        "Author": "",
+        "Config": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "/bin/bash"
+            ],
+            "Image": "sha256:3bdb1b7ec7d0b0427c63c46bfc1b2e7e953771af26648b34d0bec9e558709a64",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": null
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 134821261,
+        "VirtualSize": 134821261,
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/51f2ccc47a5f2bfcd94e1cadd8dcb5e2363eb6e78c7ce4a79f391f71944f8fda/diff:/var/lib/docker/overlay2/b8d2cc82b039a6443f172351d9269655333ed265b53b1feee65bc2c13b69e57f/diff:/var/lib/docker/overlay2/21c64f4782ba43719ec6869d9d8d72d034b76faa9e33aa4ea2b33e9cc96ed61e/diff",
+                "MergedDir": "/var/lib/docker/overlay2/369d4bb7ec9924033a5d5765586be822dbf1269db824cbca48fdc3629f9bed6a/merged",
+                "UpperDir": "/var/lib/docker/overlay2/369d4bb7ec9924033a5d5765586be822dbf1269db824cbca48fdc3629f9bed6a/diff",
+                "WorkDir": "/var/lib/docker/overlay2/369d4bb7ec9924033a5d5765586be822dbf1269db824cbca48fdc3629f9bed6a/work"
+            },
+            "Name": "overlay2"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:be96a3f634de79f523f07c7e4e0216c28af45eb5776e7a6238a2392f71e01069",
+                "sha256:df54c846128da3c71cc11b2150a3df39ec86fb170e299765daf6bb016a0705c2",
+                "sha256:47ef83afae74745639f6738a05fe5320fcfca9e6c7765fba4f25e270bc0df9dc",
+                "sha256:1251204ef8fc20da275e09f6e3ab9205421d4ff34732f2d50a1d3e86d2995edd"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "0001-01-01T00:00:00Z"
+        }
+    }
+]
+</pre>
