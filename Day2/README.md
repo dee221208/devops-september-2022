@@ -628,7 +628,7 @@ ad3588fe2258   mysql:latest                                     "docker-entrypoi
 1cbbabada110   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   21 hours ago     Up 21 hours                 0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
 </pre>
 
-## Deleting a running container forcibly without stopped it first
+## ⛹️‍♂️ Lab - Deleting a running container forcibly without stopped it first
 ```
 docker rm -f mysql
 ```
@@ -643,7 +643,7 @@ ad3588fe2258   mysql:latest                                     "docker-entrypoi
 mysql
 </pre>
 
-## Deleting multiple containers with a single command
+## ⛹️‍♂️ Lab - Deleting multiple containers with a single command
 ```
 docker ps -a
 docker rm -f artifactory dazzling_lalande
@@ -660,7 +660,7 @@ artifactory
 dazzling_lalande
 </pre>
 
-## Creating nginx web server containers
+## ⛹️‍♂️ Lab - Creating nginx web server containers
 ```
 docker ps -a
 docker run -d --name nginx1 --hostname nginx1 nginx:latest
