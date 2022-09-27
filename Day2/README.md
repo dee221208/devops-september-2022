@@ -1256,3 +1256,60 @@ Expected output
 <pre>
 /var/lib/docker
 </pre>
+
+## Setting up a Load Balancer using nginx that forwards the traffic to 3 web servers in a round-robin fashion
+```
+docker run -d --name web1 --hostname web1 nginx:latest
+docker run -d --name web2 --hostname web2 nginx:latest
+docker run -d --name web3 --hostname web3 nginx:latest
+
+docker run -d --name lb --hostname lb nginx:latest
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org hello]$ <b>docker run -d --name web1 --hostname web1 nginx:latest</b>
+d5646d8a3bd0e1f857fa45f3a260bd57c5b9891410a2c5f95a3a9088c8c8a0d3
+[jegan@tektutor.org hello]$ <b>docker run -d --name web2 --hostname web2 nginx:latest</b>
+8a9a3f9b75aa921865931239265a7f0d9224f43e41ed5204a9b1cf25e2c142d1
+[jegan@tektutor.org hello]$ <b>docker run -d --name web3 --hostname web3 nginx:latest</b>
+369d444ba1485a45441f07a7b23028f5a5a272b1a3b7e3d5e542842973adde7b
+
+[jegan@tektutor.org hello]$ <b>docker run -d --name lb --hostname lb nginx:latest</b>
+8bbcd89917968de7276d69899483d600d2d0e3e35fbaee82b0fc2e886e61183f
+</pre>
+
+Listing the container
+```
+docker ps
+```
+Expected output
+<pre>
+[jegan@tektutor.org ~]$ <b>docker ps</b>
+CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS     NAMES
+8bbcd8991796   nginx:latest   "/docker-entrypoint.…"   4 minutes ago   Up 4 minutes   80/tcp    lb
+369d444ba148   nginx:latest   "/docker-entrypoint.…"   4 minutes ago   Up 4 minutes   80/tcp    web3
+8a9a3f9b75aa   nginx:latest   "/docker-entrypoint.…"   4 minutes ago   Up 4 minutes   80/tcp    web2
+d5646d8a3bd0   nginx:latest   "/docker-entrypoint.…"   5 minutes ago   Up 5 minutes   80/tcp    web1
+</pre>
+
+Finding the IP Address of lb, web1, web2 and web nginx web servers
+```
+docker inspect -f {{.NetworkSettings.IPAddress}} web1
+docker inspect -f {{.NetworkSettings.IPAddress}} web2
+docker inspect -f {{.NetworkSettings.IPAddress}} web3
+
+docker inspect -f {{.NetworkSettings.IPAddress}} lb
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org ~]$ <b>docker inspect -f {{.NetworkSettings.IPAddress}} web1</b>
+172.17.0.2
+[jegan@tektutor.org ~]$ <b>docker inspect -f {{.NetworkSettings.IPAddress}} web2</b>
+172.17.0.3
+[jegan@tektutor.org ~]$ <b>docker inspect -f {{.NetworkSettings.IPAddress}} web3</b>
+172.17.0.4
+[jegan@tektutor.org ~]$ <b>docker inspect -f {{.NetworkSettings.IPAddress}} lb</b>
+172.17.0.5
+</pre>
