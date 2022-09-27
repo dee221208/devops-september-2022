@@ -659,3 +659,39 @@ CONTAINER ID   IMAGE                                            COMMAND         
 artifactory
 dazzling_lalande
 </pre>
+
+## Creating nginx web server containers
+```
+docker ps -a
+docker run -d --name nginx1 --hostname nginx1 nginx:latest
+docker run -d --name nginx2 --hostname nginx2 nginx:latest
+docker run -d --name nginx3 --hostname nginx3 nginx:latest
+docker ps
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org Day2]$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+[jegan@tektutor.org Day2]$ <b>docker run -d --name nginx1 --hostname nginx1 nginx:latest</b>
+Unable to find image 'nginx:latest' locally
+latest: Pulling from library/nginx
+31b3f1ad4ce1: Pull complete 
+fd42b079d0f8: Pull complete 
+30585fbbebc6: Pull complete 
+18f4ffdd25f4: Pull complete 
+9dc932c8fba2: Pull complete 
+600c24b8ba39: Pull complete 
+Digest: sha256:0b970013351304af46f322da1263516b188318682b2ab1091862497591189ff1
+Status: Downloaded newer image for nginx:latest
+b201614504ec4ac2e0617da9ecce1648cc858229a05808ca4497206bfcc51e5d
+[jegan@tektutor.org Day2]$ <b>docker run -d --name nginx2 --hostname nginx2 nginx:latest</b>
+bf3c30180fb315daf00019831ee688ef9a41e3588f56c4235d0491c34e12a34b
+[jegan@tektutor.org Day2]$ <b>docker run -d --name nginx3 --hostname nginx3 nginx:latest</b>
+6f65a1fbc158a9e4cacfdc8e2916885a82991858cfe032e39f80b19bec64feb3
+[jegan@tektutor.org Day2]$ <b>docker ps</b>
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS     NAMES
+6f65a1fbc158   nginx:latest   "/docker-entrypoint.…"   2 seconds ago    Up 1 second     80/tcp    nginx3
+bf3c30180fb3   nginx:latest   "/docker-entrypoint.…"   7 seconds ago    Up 6 seconds    80/tcp    nginx2
+b201614504ec   nginx:latest   "/docker-entrypoint.…"   13 seconds ago   Up 11 seconds   80/tcp    nginx1
+</pre>
