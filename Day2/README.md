@@ -377,3 +377,37 @@ REPOSITORY                                TAG       IMAGE ID       CREATED      
 mysql                                     latest    43fcfca0776d   12 days ago   449MB
 docker.bintray.io/jfrog/artifactory-oss   latest    e7053142b08e   3 weeks ago   1.24GB
 </pre>
+
+## Downloading Docker Image from Docker Hub to Local Registry
+```
+docker pull hello-world:latest
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org Day2]$ <b>docker pull hello-world:latest</b>
+latest: Pulling from library/hello-world
+2db29710123e: Pull complete 
+Digest: sha256:62af9efd515a25f84961b70f973a798d2eca956b1b2b026d0a4a63a3b0b6a3f2
+Status: Downloaded newer image for hello-world:latest
+docker.io/library/hello-world:latest
+[jegan@tektutor.org Day2]$ docker images
+REPOSITORY                                TAG       IMAGE ID       CREATED         SIZE
+mysql                                     latest    43fcfca0776d   12 days ago     449MB
+docker.bintray.io/jfrog/artifactory-oss   latest    e7053142b08e   3 weeks ago     1.24GB
+hello-world                               latest    feb5d9fea6a5   12 months ago   13.3kB
+</pre>
+
+## Deleting a Docker Image from Local Registry
+```
+docker rmi hello-world:latest
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org Day2]$ <b>docker rmi hello-world:latest</b>
+Untagged: hello-world:latest
+Untagged: hello-world@sha256:62af9efd515a25f84961b70f973a798d2eca956b1b2b026d0a4a63a3b0b6a3f2
+Deleted: sha256:feb5d9fea6a5e9606aa995e879d862b825965ba48de054caab5ef356dc6b3412
+Deleted: sha256:e07ee1baac5fae6a26f30cabfe54a36d3402f96afda318fe0a96cec4ca393359
+</pre>
