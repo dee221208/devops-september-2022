@@ -225,7 +225,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 </pre>
 
-## ⛹️‍♂️ Maven Profile
+## ⛹️‍♂️ Lab - Maven Profile
 ```
 cd ~/devops-september-2022
 git pull
@@ -547,7 +547,7 @@ ad3588fe2258   mysql:latest                                     "docker-entrypoi
 1cbbabada110   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   21 hours ago   Up 21 hours   0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
 </pre>
 
-## Starting an exited container
+## ⛹️‍♂️ Lab - Starting an exited container
 ```
 docker ps -a
 docker start ubuntu1
@@ -571,7 +571,7 @@ ad3588fe2258   mysql:latest                                     "docker-entrypoi
 1cbbabada110   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   21 hours ago    Up 21 hours   0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
 </pre>
 
-## Restarting a container
+## ⛹️‍♂️ Lab - Restarting a container
 ```
 docker restart ubuntu1
 docker ps
