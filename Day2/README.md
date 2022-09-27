@@ -359,6 +359,13 @@ Expected output
    - SOAP API
    - REST API
    - Microservice
+   
+   
+## Hypervisor High Level Architecture
+![Hypervisor High Level Architecture](HypervisorHighLevelArchitecture.png)
+
+## Docker High Level Architecture
+![Docker High Level Architecture](DockerHighLevelArchitecture.png)
 
 ## ⛹️‍♂️ Lab - Finding the docker version
 ```
