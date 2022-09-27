@@ -1313,3 +1313,35 @@ Expected output
 [jegan@tektutor.org ~]$ <b>docker inspect -f {{.NetworkSettings.IPAddress}} lb</b>
 172.17.0.5
 </pre>
+
+Configuring lb nginx container as a Load Balancer
+
+Let's create a nginx.conf file with the content
+<pre>
+user  nginx;
+worker_processes  auto;
+
+error_log  /var/log/nginx/error.log notice;
+pid        /var/run/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+http {
+
+    upstream servers {
+        server  172.17.0.2:80;
+        server  172.17.0.3:80;
+        server  172.17.0.4:80;
+    }
+
+    server {
+        location / {
+            proxy_pass http://servers;
+        }
+    }
+
+}
+</pre>
