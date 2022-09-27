@@ -1056,7 +1056,7 @@ c2bb53580963   my-network-2   bridge    local
 e102cd9eb503   none           null      local
 </pre>
 
-## ⛹️‍♂️ Lab - Creating a container and connect that new container to our my-network-1
+## ⛹️‍♂️ Lab - Creating containers and connecting those containers to our custom networks
 ```
 docker run -d --name c1 --hostname c1 --network=my-network-1 nginx:latest
 docker run -d --name c2 --hostname c2 --network=my-network-2 nginx:latest
