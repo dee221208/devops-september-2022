@@ -1251,3 +1251,8 @@ Expected output
     }
 ]
 </pre>
+
+## Docker Local Registry Path
+<pre>
+/var/lib/docker
+</pre>
