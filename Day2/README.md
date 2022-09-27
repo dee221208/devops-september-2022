@@ -1530,11 +1530,29 @@ exit
 
 ## ⛹️‍♂️ Lab -  Using external volume to store application data from a mysql container
 
+Let's create a folder in our lab machine that can be used by mysql container
 ```
 mkdir -p /tmp/mysql
+```
+
+Let's create a mysql container using volume mounting
+```
 docker run -d --name mysql --hostname mysql -e MYSQL_ROOT_PASSWORD=root@123 -v /tmp/mysql:/var/lib/mysql mysql:latest
+```
+
+Let's list and see if the mysql container is running
+```
 docker ps
+```
+
+
+Let's get inside the mysql container
+```
 docker exec -it mysql sh
+```
+
+Let's connect to mysql server from within the mysql container shell
+```
 mysql -u root -p 
 CREATE DATABASE tektutor;
 USE tektutor;
@@ -1545,7 +1563,10 @@ INSERT INTO training VALUES ( 3, "OpenShift", "5 Days" );
 SELECT * FROM training;
 exit
 exit
+```
 
+Let's delete the mysql container and recreate a new container that uses the same host path volume
+```
 docker rm -f mysql
 docker run -d --name mysql --hostname mysql -e MYSQL_ROOT_PASSWORD=root@123 -v /tmp/mysql:/var/lib/mysql mysql:latest
 docker exec -it mysql sh
@@ -1555,5 +1576,6 @@ USE tektutor;
 SHOW TABLES;
 SELECT * FROM training;
 ```
-
 When prompts for password, type 'root@123' without quotes.
+
+As you would have noticed by now, when database is stored in an external host path volume, even though the first container that created the records is deleted, the data is preserved and we could access the data from other container which retrieves the data from the same host path volume.
