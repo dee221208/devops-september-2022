@@ -120,7 +120,7 @@
 
 # Ansible Commands
 
-## Finding Ansible Version
+## ⛹️‍♂️ Lab - Finding Ansible Version
 ```
 ansible --version
 ```
@@ -140,7 +140,7 @@ ansible [core 2.11.12]
 </pre>
 
 
-## Creating key pair ( Do it as non-admin user )
+## ⛹️‍♂️ Lab -  Creating key pair ( Do it as non-admin user )
 ```
 ssh-keygen
 ```
@@ -171,7 +171,7 @@ The key's randomart image is:
 +----[SHA256]-----+
 </pre>
 
-## Building custom ubuntu ansible node image
+## ⛹️‍♂️ Lab -  Building custom ubuntu ansible node image
 ```
 cd ~/devops-september-2022
 git pull
@@ -563,7 +563,7 @@ Successfully built dab69bbcefdd
 Successfully tagged tektutor/ubuntu-ansible-node:latest
 </pre>
 
-## List and see if the image you build is there
+## ⛹️‍♂️ Lab -  List and see if the image you build is there
 ```
 docker images
 ```
@@ -580,7 +580,7 @@ hello-world                               latest    feb5d9fea6a5   12 months ago
 ubuntu                                    16.04     b6f507652425   13 months ago    135MB
 </pre>
 
-## Create couple of containers using our custom docker image
+## ⛹️‍♂️ Lab -  Create couple of containers using our custom docker image
 We will use the below containers as our Ansible Nodes
 ```
 docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 -p 8001:80 tektutor/ubuntu-ansible-node:latest
@@ -601,7 +601,7 @@ a6ed8e80a651   tektutor/ubuntu-ansible-node:latest   "/usr/sbin/sshd -D"   3 sec
 2e551bf20f1b   tektutor/ubuntu-ansible-node:latest   "/usr/sbin/sshd -D"   3 minutes ago   Up 3 minutes   0.0.0.0:2001->22/tcp, :::2001->22/tcp, 0.0.0.0:8001->80/tcp, :::8001->80/tcp   ubuntu1
 </pre>
 
-## Testing the containers - see if you are able to SSH into the containers without password
+## ⛹️‍♂️ Lab -  Testing the containers - see if you are able to SSH into the containers without password
 ```
 ssh -p 2001 root@localhost
 ssh -p 2002 root@localhost
