@@ -1445,3 +1445,35 @@ winrm enumerate winrm/config/Listener
 ```
 pip install "pywinrm>=0.3.0"
 ```
+
+### 🎯 Demo - Installing Mozilla Firefox Web browser via an Ansible Playbook on Windows 2019 Server
+```
+cd ~/devops-september-2022
+git pull
+cd Day3/windows-node
+
+ansible-playbook -i hosts playbook.yml 
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org windows-node]$ <b>ansible -i hosts windows -m win_ping</b>
+windows2019 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+[jegan@tektutor.org windows-node]$ <b>ls</b>
+hosts  playbook.yml
+[jegan@tektutor.org windows-node]$ <b>ansible-playbook -i hosts playbook.yml</b>
+
+PLAY [This playbook will install Mozilla Firefox on Windows 2019 Server] ************************************************
+
+TASK [Gathering Facts] **************************************************************************************************
+ok: [windows2019]
+
+TASK [Install Mozilla Firefox Web Browser] ******************************************************************************
+changed: [windows2019]
+
+PLAY RECAP **************************************************************************************************************
+windows2019                : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+</pre>
