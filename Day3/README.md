@@ -1365,6 +1365,10 @@ command.
 
 ## ⛹️‍♂️ Lab -  Passing extra agruments to your playbook
 ```
+cd ~/devops-september-2022
+git pull
+cd Day3/playbooks
+
 ansible-playbook passing-extra-args-to-playbook.yml -e "message='hello world' jdk_home=/opt/jdk-18 m2_home=/usr/share/maven"
 ```
 
