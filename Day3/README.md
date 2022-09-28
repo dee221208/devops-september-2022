@@ -580,7 +580,7 @@ hello-world                               latest    feb5d9fea6a5   12 months ago
 ubuntu                                    16.04     b6f507652425   13 months ago    135MB
 </pre>
 
-## Create coupld of containers using our custom docker image
+## Create couple of containers using our custom docker image
 We will use the below containers as our Ansible Nodes
 ```
 docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 -p 8001:80 tektutor/ubuntu-ansible-node:latest
