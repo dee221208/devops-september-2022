@@ -613,7 +613,7 @@ Expected output
 The authenticity of host '[localhost]:2001 ([::1]:2001)' can't be established.
 ECDSA key fingerprint is SHA256:V/tqAgEO2GoObDfjs6JqqxPqh95h2+2Cx/9WtU62vlE.
 ECDSA key fingerprint is MD5:35:f4:7d:82:4e:c4:d1:77:2e:8e:96:05:4a:91:6b:34.
-Are you sure you want to continue connecting (yes/no)? yes
+Are you sure you want to continue connecting (yes/no)? <b>yes</b>
 Warning: Permanently added '[localhost]:2001' (ECDSA) to the list of known hosts.
 Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 3.10.0-1160.el7.x86_64 x86_64)
 
@@ -635,7 +635,7 @@ Connection to localhost closed.
 The authenticity of host '[localhost]:2002 ([::1]:2002)' can't be established.
 ECDSA key fingerprint is SHA256:V/tqAgEO2GoObDfjs6JqqxPqh95h2+2Cx/9WtU62vlE.
 ECDSA key fingerprint is MD5:35:f4:7d:82:4e:c4:d1:77:2e:8e:96:05:4a:91:6b:34.
-Are you sure you want to continue connecting (yes/no)? yes
+Are you sure you want to continue connecting (yes/no)? <b>yes</b>
 Warning: Permanently added '[localhost]:2002' (ECDSA) to the list of known hosts.
 Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 3.10.0-1160.el7.x86_64 x86_64)
 
