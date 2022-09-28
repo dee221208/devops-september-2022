@@ -1365,6 +1365,10 @@ command.
 
 ## ⛹️‍♂️ Lab -  Passing extra agruments to your playbook
 ```
+cd ~/devops-september-2022
+git pull
+cd Day3/playbooks
+
 ansible-playbook passing-extra-args-to-playbook.yml -e "message='hello world' jdk_home=/opt/jdk-18 m2_home=/usr/share/maven"
 ```
 
@@ -1397,4 +1401,79 @@ ok: [localhost] => {
 
 PLAY RECAP **************************************************************************************************************
 localhost                  : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0  
+</pre>
+
+## Configuring a Windows Ansible Node
+
+## Setting up a Windows Ansible Node
+1. You need a VM with Windows 2019 Server or similar OS
+2. Windows Node Ansible Requirments	
+     - PowerShell 3.0 or latest
+     - .Net Framework 4.5 or latest
+
+### Finding PowerShell version
+```
+$PSVersionTable
+```
+
+### Finding .Net Framework Version
+1. Open regedit
+2. HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full
+
+### Configuring WinRM on Windows machine
+```
+$url = "https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1"
+
+$file = "$env:temp\ConfigureRemotingForAnsible.ps1"
+
+(New-Object -TypeName System.Net.WebClient).DownloadFile($url, $file)
+
+powershell.exe -ExecutionPolicy ByPass -File $file
+```
+
+### Configuring Windows node with Basic authentication
+```
+Set-Item -Path WSMan:\localhost\Service\Auth\Basic -Value $true
+```
+
+### Verify if WinRM Listeners are running ( 2 listerners one for Http and other for Https expected )
+```
+winrm enumerate winrm/config/Listener
+```
+
+### On the Ansible Controller machine, make sure pywinrm is installed
+```
+pip install "pywinrm>=0.3.0"
+```
+
+### 🎯 Demo - Installing Mozilla Firefox Web browser via an Ansible Playbook on Windows 2019 Server
+```
+cd ~/devops-september-2022
+git pull
+cd Day3/windows-node
+
+ansible-playbook -i hosts playbook.yml 
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org windows-node]$ <b>ansible -i hosts windows -m win_ping</b>
+windows2019 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+[jegan@tektutor.org windows-node]$ <b>ls</b>
+hosts  playbook.yml
+[jegan@tektutor.org windows-node]$ <b>ansible-playbook -i hosts playbook.yml</b>
+
+PLAY [This playbook will install Mozilla Firefox on Windows 2019 Server] ************************************************
+
+TASK [Gathering Facts] **************************************************************************************************
+ok: [windows2019]
+
+TASK [Install Mozilla Firefox Web Browser] ******************************************************************************
+changed: [windows2019]
+
+PLAY RECAP **************************************************************************************************************
+windows2019                : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 </pre>
