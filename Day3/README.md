@@ -1119,3 +1119,15 @@ ubuntu1 | SUCCESS => {
     "changed": false
 }
 </pre>
+
+
+## What is an Ansible playbook?
+- Ansible Playbook is an YAML file
+- Each Ansible Playbook has one ore more Play
+- Each Play has a group of Tasks
+- Each Play will be executed either on a single ansible node or a group of ansible nodes
+- Each Task can at the most invoke one Ansible Module
+- Ansible Module is either Python script in case of Unix/Linux/Mac Ansible Node or it would be a PowerShell script in case it is Windows node
+
+## Ansible Playbook Structure
+![Ansible Playbook Structure](AnsiblePlaybookStructure.png)
