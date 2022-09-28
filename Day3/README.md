@@ -1157,3 +1157,52 @@ ok: [ubuntu2]
 PLAY RECAP **************************************************************************************************************
 ubuntu2                    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 </pre>
+
+
+## Executing the ansible playbook that install nginx onto ansible nodes
+```
+cd ~/devops-september-2022
+git pull
+
+cd Day3/playbooks
+ansible-playbook -i inventory install-nginx-playbook.yml
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org playbooks]$ <b>ansible-playbook -i inventory install-nginx-playbook.yml</b>
+
+PLAY [This playbook will install nginx, configures, and deploy custom web page into the nginx web server] **********************************
+
+TASK [Gathering Facts] *********************************************************************************************************************
+ok: [ubuntu1]
+ok: [ubuntu2]
+
+TASK [Install nginx web server] ************************************************************************************************************
+ok: [ubuntu1]
+ok: [ubuntu2]
+
+TASK [Start nginx webserver service] *******************************************************************************************************
+changed: [ubuntu1]
+changed: [ubuntu2]
+
+TASK [Create custom web root folder] *******************************************************************************************************
+ok: [ubuntu1]
+ok: [ubuntu2]
+
+TASK [Configure nginx web server to use our custom web root folder] ************************************************************************
+ok: [ubuntu2]
+ok: [ubuntu1]
+
+TASK [Deploy custom html page] *************************************************************************************************************
+changed: [ubuntu1]
+changed: [ubuntu2]
+
+TASK [Restart nginx webserver] *************************************************************************************************************
+changed: [ubuntu1]
+changed: [ubuntu2]
+
+PLAY RECAP *********************************************************************************************************************************
+ubuntu1                    : ok=7    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+ubuntu2                    : ok=7    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
+</pre>
