@@ -655,7 +655,7 @@ logout
 Connection to localhost closed.
 </pre>
 
-## ⛹️‍♂️ Lab -  Ansible ping
+## ⛹️‍♂️ Lab -  Ansible ping as an Ansible ad-hoc command
 ```
 cd ~/devops-september-2022
 git pull
@@ -663,6 +663,16 @@ cd Day3/playbooks
 
 ansible -i inventory all -m ping
 ```
+
+In the above ansible ad-hoc command
+<pre>
+-i ==> indicates inventory
+inventory ==> is the actual inventory file that has connection details to the ubuntu1 and ubuntu2 ansible nodes
+all ==> indicates the all group in the inventory, i.e we wish to ping all machines in the inventory
+-m ==> indicates module
+ping ==> ping.py ansible module
+</pre>
+
 
 Expected output
 <pre>
