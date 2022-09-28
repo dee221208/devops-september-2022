@@ -1580,7 +1580,7 @@ When prompts for password, type 'root@123' without quotes.
 
 As you would have noticed by now, when database is stored in an external host path volume, even though the first container that created the records is deleted, the data is preserved and we could access the data from other container which retrieves the data from the same host path volume.
 
-## Downloading artifact from password protected JFrog Artifactory using Ansible vault
+## ⛹️‍♂️ Lab -  Downloading artifact from password protected JFrog Artifactory using Ansible vault
 ```
 cd ~/devops-september-2022
 git pull
