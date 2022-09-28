@@ -1235,3 +1235,59 @@ Expected output
 jegan@tektutor.org devops-september-2022]$ <b>ansible-doc -l | wc -l</b>
 6141
 </pre>
+
+## ⛹️‍♂️ Lab -  Protecting sensitive data like login credentials using Ansible vault
+When it prompts for password, you can type any password with which you wish to encrypt the file.
+```
+ansible-vault create jfrog-artifactory-credentials.yml
+```
+
+Viewing the ansible vault protected file
+```
+ansible-vault view jfrog-artifactory-crendentials.yml
+```
+
+Editing the ansible vault protected file
+```
+ansible-vault edit jfrog-artifactory-crendentials.yml
+```
+
+Encrypt any existing file using ansible vault
+```
+ansible-vault encrypt your-file-name
+```
+
+Decrypt an ansible vault protected file
+```
+ansible-vault decrypt your-file-name
+```
+
+## ⛹️‍♂️ Lab -  Downloading artifact from password protected JFrog Artifactory using Ansible vault
+```
+cd ~/devops-september-2022
+git pull
+cd Day3/playbooks
+
+ansible-playbook download-artifact-from-jfrog-artifactory-playbook.yml --ask-vault-pass
+```
+
+When prompts for password, type 'Admin@123' without quotes.
+
+Expected output
+<pre>
+[jegan@tektutor.org playbooks]$ ansible-playbook download-artifact-from-jfrog-artifactory-playbook.yml --ask-vault-pass
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match
+'all'
+
+PLAY [Demonstrates download artifact from JFrog Artifactory URL] ********************************************************
+
+TASK [Gathering Facts] **************************************************************************************************
+ok: [localhost]
+
+TASK [Download jar from JFrog Artifactory] ******************************************************************************
+changed: [localhost]
+
+PLAY RECAP **************************************************************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0  
+</pre>
