@@ -579,3 +579,24 @@ docker.bintray.io/jfrog/artifactory-oss   latest    e7053142b08e   3 weeks ago  
 hello-world                               latest    feb5d9fea6a5   12 months ago    13.3kB
 ubuntu                                    16.04     b6f507652425   13 months ago    135MB
 </pre>
+
+## Create coupld of containers using our custom docker image
+We will use the below containers as our Ansible Nodes
+```
+docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 -p 8001:80 tektutor/ubuntu-ansible-node:latest
+docker run -d --name ubuntu2 --hostname ubuntu2 -p 2002:22 -p 8002:80 tektutor/ubuntu-ansible-node:latest
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org devops-september-2022]$ <b>docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 -p 8001:80 tektutor/ubuntu-ansible-node:latest</b>
+2e551bf20f1bc784d2462f4b28d7268d9f21fd5c8b5b53e52ea665593984f57d
+
+[jegan@tektutor.org devops-september-2022]$ <b>docker run -d --name ubuntu2 --hostname ubuntu2 -p 2002:22 -p 8002:80 tektutor/ubuntu-ansible-node:latest</b>
+a6ed8e80a6518d4fd3f04e458b91dd80e217d6d9466722e5f32048b0f2554dcf
+
+[jegan@tektutor.org devops-september-2022]$ <b>docker ps</b>
+CONTAINER ID   IMAGE                                 COMMAND               CREATED         STATUS         PORTS                                                                          NAMES
+a6ed8e80a651   tektutor/ubuntu-ansible-node:latest   "/usr/sbin/sshd -D"   3 seconds ago   Up 1 second    0.0.0.0:2002->22/tcp, :::2002->22/tcp, 0.0.0.0:8002->80/tcp, :::8002->80/tcp   ubuntu2
+2e551bf20f1b   tektutor/ubuntu-ansible-node:latest   "/usr/sbin/sshd -D"   3 minutes ago   Up 3 minutes   0.0.0.0:2001->22/tcp, :::2001->22/tcp, 0.0.0.0:8001->80/tcp, :::8001->80/tcp   ubuntu1
+</pre>
