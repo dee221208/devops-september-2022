@@ -1,0 +1,5 @@
+- name: Demonstrates writing a simple Ansible playbook
+  hosts: ubuntu2 
+  tasks:
+  - name: Ping the ansible node
+    ping:
