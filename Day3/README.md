@@ -116,5 +116,5 @@
      - developed on top of Ansible Core
      
 ## Ansible High Level Architecture
-![Ansible High Level Architecture](AnsibleHighLevelArchitecture.png)
+![Ansible High Level Architecture](AnsibleHighLevelArchitecture.png.png)
 
