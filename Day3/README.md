@@ -1133,7 +1133,7 @@ ubuntu1 | SUCCESS => {
 ![Ansible Playbook Structure](AnsiblePlaybookStructure.png)
 
 
-## ⛹️‍♂️ Lab -   Executing your first Ansible Playbook
+## ⛹️‍♂️ Lab - Executing your first Ansible Playbook
 ```
 cd ~/devops-september-2022
 git pull
@@ -1208,7 +1208,7 @@ ubuntu2                    : ok=7    changed=3    unreachable=0    failed=0    s
 </pre>
 
 
-## Getting help from ansible about any module
+## ⛹️‍♂️ Lab - Getting help from ansible about any module
 ```
 ansible-doc template
 ansible-doc copy
@@ -1220,12 +1220,12 @@ ansible-doc apt
 ansible-doc yum
 ```
 
-## Listing all modules supported by your version of ansible
+## ⛹️‍♂️ Lab - Listing all modules supported by your version of ansible
 ```
 ansible-doc -l
 ```
 
-## Finding total modules supported by your version of Ansible
+## ⛹️‍♂️ Lab - Finding total modules supported by your version of Ansible
 ```
 ansible-doc -l | wc -l
 ```
