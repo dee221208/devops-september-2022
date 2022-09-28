@@ -1579,3 +1579,33 @@ SELECT * FROM training;
 When prompts for password, type 'root@123' without quotes.
 
 As you would have noticed by now, when database is stored in an external host path volume, even though the first container that created the records is deleted, the data is preserved and we could access the data from other container which retrieves the data from the same host path volume.
+
+## Downloading artifact from password protected JFrog Artifactory using Ansible vault
+```
+cd ~/devops-september-2022
+git pull
+cd Day3/playbooks
+
+ansible-playbook download-artifact-from-jfrog-artifactory-playbook.yml --ask-vault-pass
+```
+
+When prompts for password, type 'Admin@123' without quotes.
+
+Expected output
+<pre>
+[jegan@tektutor.org playbooks]$ ansible-playbook download-artifact-from-jfrog-artifactory-playbook.yml --ask-vault-pass
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match
+'all'
+
+PLAY [Demonstrates download artifact from JFrog Artifactory URL] ********************************************************
+
+TASK [Gathering Facts] **************************************************************************************************
+ok: [localhost]
+
+TASK [Download jar from JFrog Artifactory] ******************************************************************************
+changed: [localhost]
+
+PLAY RECAP **************************************************************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0  
+</pre>
