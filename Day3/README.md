@@ -693,7 +693,7 @@ ubuntu2 | SUCCESS => {
 }
 </pre>
 
-## Lab - Listing the facts gathered by Ansible from Ansible Node
+## ⛹️‍♂️ Lab -  Listing the facts gathered by Ansible from Ansible Node
 ```
 cd ~/devops-september-2022
 git pull
@@ -1131,3 +1131,29 @@ ubuntu1 | SUCCESS => {
 
 ## Ansible Playbook Structure
 ![Ansible Playbook Structure](AnsiblePlaybookStructure.png)
+
+
+## ⛹️‍♂️ Lab -   Executing your first Ansible Playbook
+```
+cd ~/devops-september-2022
+git pull
+cd Day3/playbooks
+
+ansible-playbook -i inventory ping-playbook.yml
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org playbooks]$ <b>ansible-playbook -i inventory ping-playbook.yml</b>
+
+PLAY [Demonstrates writing a simple Ansible playbook] *******************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************
+ok: [ubuntu2]
+
+TASK [Ping the ansible node] ********************************************************************************************
+ok: [ubuntu2]
+
+PLAY RECAP **************************************************************************************************************
+ubuntu2                    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+</pre>
