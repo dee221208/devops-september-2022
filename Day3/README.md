@@ -655,7 +655,7 @@ logout
 Connection to localhost closed.
 </pre>
 
-## Ansible ping
+## ⛹️‍♂️ Lab -  Ansible ping
 ```
 cd ~/devops-september-2022
 git pull
