@@ -118,3 +118,23 @@
 ## Ansible High Level Architecture
 ![Ansible High Level Architecture](AnsibleHighLevelArchitecture.png.png)
 
+# Ansible Commands
+
+## Finding Ansible Version
+```
+ansible --version
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org Day3]$ <b>ansible --version</b>
+ansible [core 2.11.12] 
+  config file = /home/jegan/.ansible.cfg
+  configured module search path = ['/home/jegan/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /home/jegan/.local/lib/python3.6/site-packages/ansible
+  ansible collection location = /home/jegan/.ansible/collections:/usr/share/ansible/collections
+  executable location = /home/jegan/.local/bin/ansible
+  python version = 3.6.8 (default, Nov 16 2020, 16:55:22) [GCC 4.8.5 20150623 (Red Hat 4.8.5-44)]
+  jinja version = 3.0.3
+  libyaml = True
+</pre>
