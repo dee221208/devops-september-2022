@@ -654,3 +654,31 @@ root@ubuntu2:~# exit
 logout
 Connection to localhost closed.
 </pre>
+
+## Ansible ping
+```
+cd ~/devops-september-2022
+git pull
+cd Day3/playbooks
+
+ansible -i inventory all -m ping
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org playbooks]$ <b>ansible -i inventory all -m ping</b>
+ubuntu1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+ubuntu2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+</pre>
