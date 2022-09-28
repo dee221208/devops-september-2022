@@ -1133,7 +1133,7 @@ ubuntu1 | SUCCESS => {
 ![Ansible Playbook Structure](AnsiblePlaybookStructure.png)
 
 
-## ⛹️‍♂️ Lab -   Executing your first Ansible Playbook
+## ⛹️‍♂️ Lab - Executing your first Ansible Playbook
 ```
 cd ~/devops-september-2022
 git pull
@@ -1159,7 +1159,7 @@ ubuntu2                    : ok=2    changed=0    unreachable=0    failed=0    s
 </pre>
 
 
-## Executing the ansible playbook that install nginx onto ansible nodes
+## ⛹️‍♂️ Lab - Executing the ansible playbook that installs nginx onto ansible nodes
 ```
 cd ~/devops-september-2022
 git pull
@@ -1205,4 +1205,33 @@ changed: [ubuntu2]
 PLAY RECAP *********************************************************************************************************************************
 ubuntu1                    : ok=7    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 ubuntu2                    : ok=7    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
+</pre>
+
+
+## ⛹️‍♂️ Lab - Getting help from ansible about any module
+```
+ansible-doc template
+ansible-doc copy
+ansible-doc shell
+ansible-doc command
+ansible-doc docker_image
+ansible-doc file
+ansible-doc apt
+ansible-doc yum
+```
+
+## ⛹️‍♂️ Lab - Listing all modules supported by your version of Ansible
+```
+ansible-doc -l
+```
+
+## ⛹️‍♂️ Lab - Finding total modules supported by your version of Ansible
+```
+ansible-doc -l | wc -l
+```
+
+Expected output
+<pre>
+jegan@tektutor.org devops-september-2022]$ <b>ansible-doc -l | wc -l</b>
+6141
 </pre>
