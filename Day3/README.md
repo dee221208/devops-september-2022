@@ -1220,7 +1220,7 @@ ansible-doc apt
 ansible-doc yum
 ```
 
-## ⛹️‍♂️ Lab - Listing all modules supported by your version of ansible
+## ⛹️‍♂️ Lab - Listing all modules supported by your version of Ansible
 ```
 ansible-doc -l
 ```
