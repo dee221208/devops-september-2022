@@ -115,4 +115,6 @@
      - you won't get a support
      - developed on top of Ansible Core
      
- 
+## Ansible High Level Architecture
+![Ansible High Level Architecture](AnsibleHighLevelArchitecture.png)
+
