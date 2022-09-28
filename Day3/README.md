@@ -1220,3 +1220,18 @@ ansible-doc apt
 ansible-doc yum
 ```
 
+## Listing all modules supported by your version of ansible
+```
+ansible-doc -l
+```
+
+## Finding total modules supported by your version of Ansible
+```
+ansible-doc -l | wc -l
+```
+
+Expected output
+<pre>
+jegan@tektutor.org devops-september-2022]$ <b>ansible-doc -l | wc -l</b>
+6141
+</pre>
