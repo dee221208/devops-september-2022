@@ -1159,7 +1159,7 @@ ubuntu2                    : ok=2    changed=0    unreachable=0    failed=0    s
 </pre>
 
 
-## ⛹️‍♂️ Lab - Executing the ansible playbook that install nginx onto ansible nodes
+## ⛹️‍♂️ Lab - Executing the ansible playbook that installs nginx onto ansible nodes
 ```
 cd ~/devops-september-2022
 git pull
