@@ -1,0 +1,8 @@
+- name: This playbook will install Mozilla Firefox on Windows 2019 Server
+  hosts: windows
+  tasks:
+  - name: Install Mozilla Firefox Web Browser 
+    win_chocolatey:
+      name: firefox 
+      force: yes
+      state: latest
