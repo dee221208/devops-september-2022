@@ -1291,3 +1291,76 @@ changed: [localhost]
 PLAY RECAP **************************************************************************************************************
 localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0  
 </pre>
+
+## Ansible vault
+```
+[jegan@tektutor.org ansible_vault]$ ansible-vault create weblogic-login-credentials.yml
+[jegan@tektutor.org ansible_vault]$ cat weblogic-login-credentials.yml 
+$ANSIBLE_VAULT;1.1;AES256
+61356464333631316530383037333462313939316264383133643761376237363861666133303432
+6666323765366165616266343634323766336635633436360a633833646164303935663433643838
+34303731383162646261316233633636353230653963626632366235663330363664396331396231
+3161653935353539660a626430386239613863366630353462366361396639623335366633666530
+36396236396563613466326261656432623233316335313332386634663535366562
+[jegan@tektutor.org ansible_vault]$ ansible-vaule view weblogic-login-credentials.yml 
+bash: ansible-vaule: command not found...
+[jegan@tektutor.org ansible_vault]$ ansible-vault view weblogic-login-credentials.yml 
+user: admin
+password: root@123
+[jegan@tektutor.org ansible_vault]$ ansible-vault edit weblogic-login-credentials.yml 
+[jegan@tektutor.org ansible_vault]$ cat weblogic-login-credentials.yml 
+$ANSIBLE_VAULT;1.1;AES256
+30616165353831306235386262626331383566386434636231396436323334353631393733393465
+3730383462616637306336623734353463343831313730390a373730383531393731643963653564
+32643234386466363630386437633964346632626132383431373466626461393734383035613233
+6461363034333164370a353530306237633637636265383438623231623837363832666438303934
+38396133666131323561666638316236613733616131353438633337623635313762663138383864
+6439333533323736313236316531643436653431313931326338
+[jegan@tektutor.org ansible_vault]$ ansible-vault decrypt weblogic-login-credentials.yml 
+Decryption successful
+[jegan@tektutor.org ansible_vault]$ cat weblogic-login-credentials.yml 
+user: admin
+password: Admin@123
+[jegan@tektutor.org ansible_vault]$ ansible-vault encrypt weblogic-login-credentials.yml 
+Encryption successful
+[jegan@tektutor.org ansible_vault]$ cat weblogic-login-credentials.yml 
+$ANSIBLE_VAULT;1.1;AES256
+33643136323266333537633933663566393063633832626162643834333432666434306131393339
+3536303833623166633064363464613439623730313437610a373632326361373661386563636530
+38353139353335653339626136396665373463653934343064653939613432633162616232306139
+6163363334646366350a383664653432393463643530393039356639373835653666386638653664
+62666363656262326531373962343532356333336665653439366336353730343534303466386338
+3039346161616632333334663831646563623336373438336336
+[jegan@tektutor.org ansible_vault]$ ansible-vault
+usage: ansible-vault [-h] [--version] [-v]
+                     {create,decrypt,edit,view,encrypt,encrypt_string,rekey}
+                     ...
+ansible-vault: error: the following arguments are required: action
+ 
+usage: ansible-vault [-h] [--version] [-v]
+                     {create,decrypt,edit,view,encrypt,encrypt_string,rekey}
+                     ...
+
+encryption/decryption utility for Ansible data files
+
+positional arguments:
+  {create,decrypt,edit,view,encrypt,encrypt_string,rekey}
+    create              Create new vault encrypted file
+    decrypt             Decrypt vault encrypted file
+    edit                Edit vault encrypted file
+    view                View vault encrypted file
+    encrypt             Encrypt YAML file
+    encrypt_string      Encrypt a string
+    rekey               Re-key a vault encrypted file
+
+optional arguments:
+  --version             show program's version number, config file location,
+                        configured module search path, module location,
+                        executable location and exit
+  -h, --help            show this help message and exit
+  -v, --verbose         verbose mode (-vvv for more, -vvvv to enable
+                        connection debugging)
+
+See 'ansible-vault <command> --help' for more information on a specific
+command.
+```
