@@ -138,3 +138,35 @@ ansible [core 2.11.12]
   jinja version = 3.0.3
   libyaml = True
 </pre>
+
+
+## Creating key pair ( Do it as non-admin user )
+```
+ssh-keygen
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org DockerAnsibleUbuntuNodeImage]$ <b>ssh-keygen</b>
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/jegan/.ssh/id_rsa): 
+Created directory '/home/jegan/.ssh'.
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/jegan/.ssh/id_rsa.
+Your public key has been saved in /home/jegan/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:o8JAjpp6SY/7e3uaFb7pfLp85oN1RrFB+rcp3t1OqXk jegan@tektutor.org
+The key's randomart image is:
++---[RSA 2048]----+
+|           ..    |
+|           .o    |
+|  .       .  +   |
+| +         .o    |
+|. o     S  .. .  |
+|...o   o o. o. o.|
+|o. +o . oo o. o..|
+|. + ...=oo=. ooE.|
+|...ooo+=OB...oo.+|
++----[SHA256]-----+
+</pre>
