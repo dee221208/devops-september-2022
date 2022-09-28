@@ -1,0 +1,11 @@
+- name: Demonstrates download artifact from JFrog Artifactory URL
+  hosts: localhost
+  vars_files:
+  - jfrog-artifactory-credentials.yml
+  tasks:
+  - name: Download jar from JFrog Artifactory
+    get_url:
+      url_username: "{{username}}" 
+      url_password: "{{password}}"
+      url: http://localhost:8082/artifactory/tektutor/org/tektutor/data-access-layer/1.0/data-access-layer-1.0.jar 
+      dest: .
