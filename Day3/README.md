@@ -1206,3 +1206,17 @@ PLAY RECAP *********************************************************************
 ubuntu1                    : ok=7    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 ubuntu2                    : ok=7    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
 </pre>
+
+
+## Getting help from ansible about any module
+```
+ansible-doc template
+ansible-doc copy
+ansible-doc shell
+ansible-doc command
+ansible-doc docker_image
+ansible-doc file
+ansible-doc apt
+ansible-doc yum
+```
+
