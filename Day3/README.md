@@ -562,3 +562,20 @@ Removing intermediate container dca2594d621e
 Successfully built dab69bbcefdd
 Successfully tagged tektutor/ubuntu-ansible-node:latest
 </pre>
+
+## List and see if the image you build is there
+```
+docker images
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org devops-september-2022]$ docker images
+REPOSITORY                                TAG       IMAGE ID       CREATED          SIZE
+<b>tektutor/ubuntu-ansible-node              latest    dab69bbcefdd   21 minutes ago   220MB</b>
+mysql                                     latest    43fcfca0776d   13 days ago      449MB
+nginx                                     latest    2d389e545974   2 weeks ago      142MB
+docker.bintray.io/jfrog/artifactory-oss   latest    e7053142b08e   3 weeks ago      1.24GB
+hello-world                               latest    feb5d9fea6a5   12 months ago    13.3kB
+ubuntu                                    16.04     b6f507652425   13 months ago    135MB
+</pre>
