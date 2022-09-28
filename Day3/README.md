@@ -120,7 +120,7 @@
 
 # Ansible Commands
 
-## Finding Ansible Version
+## ⛹️‍♂️ Lab - Finding Ansible Version
 ```
 ansible --version
 ```
@@ -140,7 +140,7 @@ ansible [core 2.11.12]
 </pre>
 
 
-## Creating key pair ( Do it as non-admin user )
+## ⛹️‍♂️ Lab -  Creating key pair ( Do it as non-admin user )
 ```
 ssh-keygen
 ```
@@ -171,11 +171,12 @@ The key's randomart image is:
 +----[SHA256]-----+
 </pre>
 
-## Building custom ubuntu ansible node image
+## ⛹️‍♂️ Lab -  Building custom ubuntu ansible node image
 ```
 cd ~/devops-september-2022
 git pull
 cd Day3/DockerAnsibleUbuntuNodeImage
+cp /home/rps/.ssh/id_rsa.pub authorized_keys
 
 docker build -t tektutor/ubuntu-ansible-node:latest .
 ```
@@ -560,4 +561,124 @@ Removing intermediate container dca2594d621e
  ---> dab69bbcefdd
 Successfully built dab69bbcefdd
 Successfully tagged tektutor/ubuntu-ansible-node:latest
+</pre>
+
+## ⛹️‍♂️ Lab -  List and see if the image you build is there
+```
+docker images
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org devops-september-2022]$ docker images
+REPOSITORY                                TAG       IMAGE ID       CREATED          SIZE
+<b>tektutor/ubuntu-ansible-node              latest    dab69bbcefdd   21 minutes ago   220MB</b>
+mysql                                     latest    43fcfca0776d   13 days ago      449MB
+nginx                                     latest    2d389e545974   2 weeks ago      142MB
+docker.bintray.io/jfrog/artifactory-oss   latest    e7053142b08e   3 weeks ago      1.24GB
+hello-world                               latest    feb5d9fea6a5   12 months ago    13.3kB
+ubuntu                                    16.04     b6f507652425   13 months ago    135MB
+</pre>
+
+## ⛹️‍♂️ Lab -  Create couple of containers using our custom docker image
+We will use the below containers as our Ansible Nodes
+```
+docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 -p 8001:80 tektutor/ubuntu-ansible-node:latest
+docker run -d --name ubuntu2 --hostname ubuntu2 -p 2002:22 -p 8002:80 tektutor/ubuntu-ansible-node:latest
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org devops-september-2022]$ <b>docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 -p 8001:80 tektutor/ubuntu-ansible-node:latest</b>
+2e551bf20f1bc784d2462f4b28d7268d9f21fd5c8b5b53e52ea665593984f57d
+
+[jegan@tektutor.org devops-september-2022]$ <b>docker run -d --name ubuntu2 --hostname ubuntu2 -p 2002:22 -p 8002:80 tektutor/ubuntu-ansible-node:latest</b>
+a6ed8e80a6518d4fd3f04e458b91dd80e217d6d9466722e5f32048b0f2554dcf
+
+[jegan@tektutor.org devops-september-2022]$ <b>docker ps</b>
+CONTAINER ID   IMAGE                                 COMMAND               CREATED         STATUS         PORTS                                                                          NAMES
+a6ed8e80a651   tektutor/ubuntu-ansible-node:latest   "/usr/sbin/sshd -D"   3 seconds ago   Up 1 second    0.0.0.0:2002->22/tcp, :::2002->22/tcp, 0.0.0.0:8002->80/tcp, :::8002->80/tcp   ubuntu2
+2e551bf20f1b   tektutor/ubuntu-ansible-node:latest   "/usr/sbin/sshd -D"   3 minutes ago   Up 3 minutes   0.0.0.0:2001->22/tcp, :::2001->22/tcp, 0.0.0.0:8001->80/tcp, :::8001->80/tcp   ubuntu1
+</pre>
+
+## ⛹️‍♂️ Lab -  Testing the containers - see if you are able to SSH into the containers without password
+```
+ssh -p 2001 root@localhost
+ssh -p 2002 root@localhost
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org devops-september-2022]$ <b>ssh -p 2001 root@localhost</b>
+The authenticity of host '[localhost]:2001 ([::1]:2001)' can't be established.
+ECDSA key fingerprint is SHA256:V/tqAgEO2GoObDfjs6JqqxPqh95h2+2Cx/9WtU62vlE.
+ECDSA key fingerprint is MD5:35:f4:7d:82:4e:c4:d1:77:2e:8e:96:05:4a:91:6b:34.
+Are you sure you want to continue connecting (yes/no)? <b>yes</b>
+Warning: Permanently added '[localhost]:2001' (ECDSA) to the list of known hosts.
+Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 3.10.0-1160.el7.x86_64 x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+root@ubuntu1:~# exit
+logout
+Connection to localhost closed.
+[jegan@tektutor.org devops-september-2022]$ <b>ssh -p 2002 root@localhost</b>
+The authenticity of host '[localhost]:2002 ([::1]:2002)' can't be established.
+ECDSA key fingerprint is SHA256:V/tqAgEO2GoObDfjs6JqqxPqh95h2+2Cx/9WtU62vlE.
+ECDSA key fingerprint is MD5:35:f4:7d:82:4e:c4:d1:77:2e:8e:96:05:4a:91:6b:34.
+Are you sure you want to continue connecting (yes/no)? <b>yes</b>
+Warning: Permanently added '[localhost]:2002' (ECDSA) to the list of known hosts.
+Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 3.10.0-1160.el7.x86_64 x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+root@ubuntu2:~# exit
+logout
+Connection to localhost closed.
+</pre>
+
+## ⛹️‍♂️ Lab -  Ansible ping
+```
+cd ~/devops-september-2022
+git pull
+cd Day3/playbooks
+
+ansible -i inventory all -m ping
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org playbooks]$ <b>ansible -i inventory all -m ping</b>
+ubuntu1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+ubuntu2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
 </pre>
