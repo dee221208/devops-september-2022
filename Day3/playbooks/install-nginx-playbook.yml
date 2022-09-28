@@ -1,0 +1,25 @@
+- name: This playbook will install nginx, configures, and deploy custom web page into the nginx web server
+  hosts: all
+  vars:
+  - greeting_msg: Welcome to DevOps!
+  vars_files:
+  - my_variables.yml
+  tasks:
+  - name: Install nginx web server
+    apt: name=nginx state=latest update_cache=yes
+
+  - name: Start nginx webserver service
+    shell: service nginx start
+
+  - name: Create custom web root folder
+    file: path=/var/html state=directory mode=0755
+
+  - name: Configure nginx web server to use our custom web root folder
+    copy: src=default dest=/etc/nginx/sites-available/default 
+ 
+  - name: Deploy custom html page
+    template: src=index.html.j2 dest=/var/html/index.html
+ 
+  - name: Restart nginx webserver
+    shell: service nginx restart
+
