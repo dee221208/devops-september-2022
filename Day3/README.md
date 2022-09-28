@@ -176,6 +176,7 @@ The key's randomart image is:
 cd ~/devops-september-2022
 git pull
 cd Day3/DockerAnsibleUbuntuNodeImage
+cp /home/rps/.ssh/id_rsa.pub authorized_keys
 
 docker build -t tektutor/ubuntu-ansible-node:latest .
 ```
