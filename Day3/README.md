@@ -1292,7 +1292,7 @@ PLAY RECAP *********************************************************************
 localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0  
 </pre>
 
-## Ansible vault
+## ⛹️‍♂️ Lab -  Ansible vault
 ```
 [jegan@tektutor.org ansible_vault]$ ansible-vault create weblogic-login-credentials.yml
 [jegan@tektutor.org ansible_vault]$ cat weblogic-login-credentials.yml 
@@ -1302,8 +1302,6 @@ $ANSIBLE_VAULT;1.1;AES256
 34303731383162646261316233633636353230653963626632366235663330363664396331396231
 3161653935353539660a626430386239613863366630353462366361396639623335366633666530
 36396236396563613466326261656432623233316335313332386634663535366562
-[jegan@tektutor.org ansible_vault]$ ansible-vaule view weblogic-login-credentials.yml 
-bash: ansible-vaule: command not found...
 [jegan@tektutor.org ansible_vault]$ ansible-vault view weblogic-login-credentials.yml 
 user: admin
 password: root@123
@@ -1364,3 +1362,39 @@ optional arguments:
 See 'ansible-vault <command> --help' for more information on a specific
 command.
 ```
+
+## ⛹️‍♂️ Lab -  Passing extra agruments to your playbook
+```
+ansible-playbook passing-extra-args-to-playbook.yml -e "message='hello world' jdk_home=/opt/jdk-18 m2_home=/usr/share/maven"
+```
+
+Expected output
+<pre>
+[jegan@tektutor.org playbooks]$ <b>ansible-playbook passing-extra-args-to-playbook.yml -e "message='hello world' jdk_home=/opt/jdk-18 m2_home=/usr/share/maven"</b>
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match
+'all'
+
+PLAY [This playbook demonstrates passing arguments to your playbook] ****************************************************
+
+TASK [Gathering Facts] **************************************************************************************************
+ok: [localhost]
+
+TASK [debug] ************************************************************************************************************
+ok: [localhost] => {
+    "msg": "message  --> hello world"
+}
+
+TASK [debug] ************************************************************************************************************
+ok: [localhost] => {
+    "msg": "jdk_home --> /opt/jdk-18"
+}
+
+TASK [debug] ************************************************************************************************************
+ok: [localhost] => {
+    "msg": "m2_home --> /usr/share/maven"
+}
+
+PLAY RECAP **************************************************************************************************************
+localhost                  : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0  
+</pre>
