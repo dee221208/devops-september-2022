@@ -402,3 +402,14 @@ git pull
 cd ~/Downloads
 java -jar ./jenkins.war
 ```
+
+You can access the Jenkins Dashboard from the below URL
+<pre>
+http://localhost:8080
+</pre>
+
+When prompted for login credentials, you can type the below
+<pre>
+username - rps
+password - rps@12345
+</pre>
