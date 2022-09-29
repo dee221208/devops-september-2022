@@ -298,3 +298,26 @@ git log
 Expected output
 <pre>
 </pre>
+
+## Git Merge vs Git Rebase
+
+#### Git Merge
+<pre>
+1. Git merge will retain the commit ids intact while merging the changes from source branch to the destination branch.
+2. Git merge will require a commit to merge the changes
+3. Git merge will attempt to auto-merge when there are no conflicts
+4. Git merge will result in merge-conflicts if there are conflicting changes between the source and destrination branches. In such case, a merge conflict resolution has to be done.
+</pre>
+
+#### Git Rebase
+<pre>
+1. Post rebase, the log will look as though all the changes were done in the destination branch
+2. Git rebase will change the commit id it is requires rearranges changes in the the destination.  This doesn't happen in merge.
+</pre>
+
+
+
+## Git Cherry Pick
+<pre>
+- Allows to skip and pick changes starting from a particular commit-id in a branch
+</pre>
