@@ -50,3 +50,28 @@ git log
 ```
 git branch
 ```
+
+## Creating a new branch from master branch
+```
+cd ~/GitDemo
+git status
+
+git checkout -b dev
+```
+
+## Switching between branches
+
+First find the active branch
+```
+git branch
+```
+
+Assuming you are in 'dev' branch, switch to 'master' branch
+```
+git checkout master
+```
+
+Assuming you are in 'master' branch now, switch back to 'dev' branch
+```
+git checkout dev
+```
