@@ -104,3 +104,19 @@ Now switch to 'master' branch and see the log and observe the difference between
 git checkout master
 git log
 ```
+
+## Discarding changes by using git reset
+```
+cd ~/GitDemo
+git status
+
+git checkout -b dev
+touch gadgets.txt
+git status
+git add *
+git status
+git commit -m "Added gadgets.txt in dev"
+git status
+git log
+```
+
