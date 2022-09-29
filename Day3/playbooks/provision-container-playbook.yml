@@ -14,6 +14,6 @@
        published_ports:
        - "2{{item}}:22"
        - "8{{item}}:80"
-    with_sequence: count=20 format="%03d" 
+    with_sequence: count=2 format="%03d" 
          
 
