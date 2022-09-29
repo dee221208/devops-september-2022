@@ -138,3 +138,40 @@ git log
 git reset --hard <previous-commit-id-shown-in-the-log'
 git log
 ```
+
+Expected output
+<pre>
+(jegan@tektutor.org)$ <b>git log</b>
+commit 2621712c4154fd3fbb88713f616052216c48cd3e (HEAD -> dev)
+Author: Jeganathan Swaminathan <mail2jegan@gmail.com>
+Date:   Thu Sep 29 11:01:17 2022 +0530
+
+    Added gadgets.txt in dev
+
+commit 56ff9bc2d68b792396b3a7f750516b3a8a03bcf9 (master)
+Author: Jeganathan Swaminathan <mail2jegan@gmail.com>
+Date:   Thu Sep 29 10:13:20 2022 +0530
+
+    Added cars.txt in dev
+
+commit 48fe40fa58a2c65c852a28e380e1b9860ad4f62f
+Author: Jeganathan Swaminathan <mail2jegan@gmail.com>
+Date:   Thu Sep 29 10:00:22 2022 +0530
+
+    Added file2 and file3 in master
+
+commit 058cffc5977d46996e9e432423481e935b4f578f
+Author: Jeganathan Swaminathan <mail2jegan@gmail.com>
+Date:   Thu Sep 29 09:56:33 2022 +0530
+
+    Initial commit done in master
+(jegan@tektutor.org)$ <b>ls</b>
+cars.txt  file1.txt  file2.txt  file3.txt  <b>gadgets.txt</b>
+(jegan@tektutor.org)$ <b>git status</b>
+On branch dev
+nothing to commit, working tree clean
+(jegan@tektutor.org)$ <b>git reset --hard 56ff9bc2d68b792396b3a7f750516b3a8a03bcf9</b>
+HEAD is now at 56ff9bc Added cars.txt in dev
+(jegan@tektutor.org)$ <b>ls</b>
+cars.txt  file1.txt  file2.txt  file3.txt
+</pre>
