@@ -75,3 +75,32 @@ Assuming you are in 'master' branch now, switch back to 'dev' branch
 ```
 git checkout dev
 ```
+
+## Let's add some new file in 'dev' branch
+```
+cd ~/GitDemo
+git status
+
+git checkout -b dev
+touch cars.txt
+```
+
+Stage the cars.txt file
+```
+git status
+git add cars.txt
+git status
+```
+
+Commit the cars.txt file into the `dev` branch
+```
+git commit -m "Added cars.txt in dev"
+git status
+git log
+```
+
+Now switch to 'master' branch and see the log and observe the difference between the log printed in 'master' and 'dev' brnaches.
+```
+git checkout master
+git log
+```
