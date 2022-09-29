@@ -99,7 +99,7 @@ git status
 git log
 ```
 
-Now switch to 'master' branch and see the log and observe the difference between the log printed in 'master' and 'dev' brnaches.
+Now switch to 'master' branch and see the log and observe the difference between the log printed in 'master' and 'dev' branches.
 ```
 git checkout master
 git log
