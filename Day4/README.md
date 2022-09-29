@@ -340,3 +340,58 @@ For example
 cd ~/devops-september-2022
 git pull
 </pre>
+
+
+## What is DevOps?
+- automating manual developer testing efforts, qa testing efforing, system administrative tasks
+- the mantra - convery into manual efforts into code
+- Developer
+  - does unit-testing and integration manually
+  - DevOps recommends converting this effort into code
+    - Test Driven Development (TDD)
+      - Java
+         - JUnit or TestNG, Mockito, EasyMock, PowerMock
+      - C++
+         - GoogleTest, GoogleMock, CppUnit
+      - C#
+         - Nunit & Moq
+      - NodeJS, ReactJS, TypeScript, JavaScript
+        - Jasmine & Karma
+      - Python
+        - PyTest
+        
+    - Behaviour Driven Development (BDD )
+      - Helps in automating End-to-End Functional Test
+      - Load, Stress, Performance, Component and API Test
+      - Even non-technical business folks also can understand and review these cases as they look like English
+      - Java/C++
+        - Cucumber
+      - C#
+        - Specflow
+        
+    - QA Engineer
+      - they do manual testing which can be automated by converting them into code
+      - BDD Framework with Selenium, etc.,
+    
+    - System Administrators
+      - they install OS, Softwares, and Configuration Management
+      - these efforts can be automated using Ansible, Terraform, Cloudformation, Vagrant, Docker, Jenkins
+
+## What is Continuous Integration?
+- integrating code several times a day
+- we should use process and tools to automate build and test efforts based on code commit
+- the build should run automated test cases each time code is committed and share build report as feedback
+- fail fast approach
+
+## What is Continuous Deployment?
+- The application binaries produced by CI builds are frequently deployed into dev,qa environments for further automated testing
+
+## What is Continuous Delivery?
+- Delivering the thoroughly tested application binaries to customer environments or in some cases to live production environment
+
+## Jenkins
+- is an opensource CI/CD Build Server
+- developed by Kohsuke Kawaguchi(former Sun MicroSystems) in Java 
+- initially it was developed as Hudson within Sun Microsystems, later when Oracle acquired Sun Microsystems the team got split 
+- Cloudbees is the enterprise variant of Jenkins
+- it can be used by programming language stack
