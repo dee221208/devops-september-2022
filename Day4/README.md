@@ -398,6 +398,11 @@ git pull
 
 
 ## Starting Jenkins from CLI
+For detailed step by step instructions, please refer my medium blog here
+<pre>
+https://medium.com/tektutor/ci-cd-with-maven-github-docker-jenkins-aca28c252fec
+</pre>
+
 ```
 cd ~/Downloads
 java -jar ./jenkins.war
