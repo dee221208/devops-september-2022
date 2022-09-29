@@ -131,3 +131,10 @@ git status
 git log
 ```
 
+Discard the recent commit
+```
+git checkout dev
+git log
+git reset --hard <previous-commit-id-shown-in-the-log'
+git log
+```
