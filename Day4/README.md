@@ -321,3 +321,22 @@ Expected output
 <pre>
 - Allows to skip and pick changes starting from a particular commit-id in a branch
 </pre>
+
+## Git Push
+<pre>
+- changes can be pushed from local Git Repo to GitHub Central Repo
+</pre>
+
+## Git Clone
+- Downloads the entire code from a GitHub branch to local Git Repository
+Example
+<pre>
+git clone https://github.com/tektutor/devops-september-2022.git
+</pre>
+## Git Pull
+- Delta changes from GitHub to Local Repo can be pulled
+For example
+<pre>
+cd ~/devops-september-2022
+git pull
+</pre>
