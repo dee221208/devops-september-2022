@@ -395,3 +395,10 @@ git pull
 - initially it was developed as Hudson within Sun Microsystems, later when Oracle acquired Sun Microsystems the team got split 
 - Cloudbees is the enterprise variant of Jenkins
 - it can be used by programming language stack
+
+
+## Starting Jenkins from CLI
+```
+cd ~/Downloads
+java -jar ./jenkins.war
+```
