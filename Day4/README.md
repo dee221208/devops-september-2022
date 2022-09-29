@@ -235,3 +235,66 @@ git log
 ```
 
 Merge will merge all the changes from the 'dev' branch into the 'master' branch with one extra commit for merging the changes.
+
+## Git Rebase
+```
+cd ~
+mkdir GitRebaseDemo
+cd GitRebaseDemo
+git init
+
+touch f1.txt
+git add *
+git commit -m "Added f1.txt in master"
+
+touch f2.txt
+git add *
+git commit -m "Added f2.txt in master"
+
+touch f3.txt
+git add *
+git commit -m "Added f3.txt in master"
+
+git log
+```
+
+Let's create a 'dev' branch from 'master' branch
+```
+git checkout -b dev
+
+touch f4.txt
+git add *
+git commit -m "Added f4.txt in dev"
+
+touch f5.txt
+git add *
+git commit -m "Added f5.txt in dev"
+
+git log
+```
+
+Let's switch back to 'master' branch
+```
+git checkout master
+
+touch f6.txt
+git add *
+git commit -m "Added f6.txt in master"
+
+touch f7.txt
+git add *
+git commit -m "Added f7.txt in master"
+
+git log
+```
+
+Let's copy the changes from 'dev' branch to 'master' branch using rebase
+```
+git checkout master
+git rebase dev master
+git log
+```
+
+Expected output
+<pre>
+</pre>
