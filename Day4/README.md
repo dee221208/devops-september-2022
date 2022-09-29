@@ -105,6 +105,17 @@ git checkout master
 git log
 ```
 
+## Merging 'dev' branch changes into 'master' branch
+```
+cd ~/GitDemo
+git status
+git branch
+git checkout master
+git merge dev
+git status
+git log
+```
+
 ## Discarding changes by using git reset
 ```
 cd ~/GitDemo
