@@ -175,3 +175,63 @@ HEAD is now at 56ff9bc Added cars.txt in dev
 (jegan@tektutor.org)$ <b>ls</b>
 cars.txt  file1.txt  file2.txt  file3.txt
 </pre>
+
+## Git Merge 
+```
+cd ~
+mkdir GitMergeDemo
+cd GitMergeDemo
+git init
+touch f1.txt
+git add *
+git commit -m "Added f1.txt in master"
+
+touch f2.txt
+git add *
+git commit -m "Added f2.txt in master"
+
+touch f3.txt
+git add *
+git commit -m "Added f3.txt in master"
+
+git log
+```
+
+Let's create a 'dev' branch from 'master' branch
+```
+git checkout -b dev
+
+touch f4.txt
+git add *
+git commit -m "Added f4.txt in dev"
+
+touch f5.txt
+git add *
+git commit -m "Added f5.txt in dev"
+
+git log
+```
+
+Let's switch back to 'master' branch
+```
+git checkout master
+
+touch f6.txt
+git add *
+git commit -m "Added f6.txt in master"
+
+touch f7.txt
+git add *
+git commit -m "Added f7.txt in master"
+
+git log
+```
+
+Let's merge the changes from 'dev' to 'master' branch. We need to switch to destination branch which is 'master' in this case.
+```
+git checkout master
+git merge dev
+git log
+```
+
+Merge will merge all the changes from the 'dev' branch into the 'master' branch with one extra commit for merging the changes.
