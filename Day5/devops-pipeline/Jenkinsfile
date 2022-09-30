@@ -4,6 +4,18 @@ pipeline {
         label 'docker-slave'
     }
     stages {
+        stage('Build Jenkins Slave Node Container Name') {
+           agent {
+              label 'built-in'
+           }
+	   steps {
+              script {
+                 dir("Day5/devops-pipeline") {
+                    sh "ansible-playbook build-docker-image-playbook.yml"
+                 }
+              }
+           }
+        }
         stage('Compile') {
             steps {
                 script {
