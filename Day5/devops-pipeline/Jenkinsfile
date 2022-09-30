@@ -7,7 +7,7 @@ pipeline {
         stage('Compile') {
             steps {
                 script {
-                    dir("Day2/multi-module-project") {
+                    dir("../../Day2/multi-module-project") {
                     	sh "mvn clean compile"
 		    }
                 }
@@ -16,7 +16,7 @@ pipeline {
         stage('Unit Test') {
             steps {
                 script {
-                    dir("Day2/multi-module-project") {
+                    dir("../../Day2/multi-module-project") {
                     	sh "mvn test"
 		    }
                 }
@@ -25,7 +25,7 @@ pipeline {
         stage('package') {
             steps {
                 script {
-                    dir("Day2/multi-module-project") {
+                    dir("../../Day2/multi-module-project") {
                     	sh "mvn package"
 		    }
                 }
@@ -34,7 +34,7 @@ pipeline {
         stage('Install') {
             steps {
                 script {
-                    dir("Day2/multi-module-project") {
+                    dir("../../Day2/multi-module-project") {
                     	sh "mvn install"
 		    }
                 }
@@ -43,7 +43,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    dir("Day2/multi-module-project") {
+                    dir("../../Day2/multi-module-project") {
                     	sh "mvn deploy"
 		    }
                 }
@@ -52,7 +52,7 @@ pipeline {
         stage('Static Code Analyis - SonarQube') {
             steps {
                 script {
-                    dir("Day2/multi-module-project") {
+                    dir("../../Day2/multi-module-project") {
                     	sh "mvn clean verify sonar:sonar \
                                -Dsonar.projectKey=multimodule \
                                -Dsonar.host.url=http://192.168.167.161:9000 \
