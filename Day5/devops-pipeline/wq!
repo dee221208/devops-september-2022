@@ -6,8 +6,16 @@
     ignore_errors: yes
 
   - name: Install Docker Python SDK in CentOS
-    when: (ansible_distribution == CentOS)
+    when: (ansible_distribution == "CentOS" and ansible_os_family  == "RedHat")
+    yum: name=epel-release state=latest
+
+  - name: Install Docker Python SDK in CentOS
+    when: (ansible_distribution == "CentOS" and ansible_os_family  == "RedHat")
     yum: name=python3-pip state=latest
+
+  - name: Install Docker Python SDK in Ubuntu 
+    when: (ansible_distribution == "Ubuntu" and ansible_os_family  == "Debian")
+    apt: name=python3-pip state=latest update_cache=yes
 
   - name: Install Docker SDK for ansible to communicate  with docker server
     shell: pip install docker
