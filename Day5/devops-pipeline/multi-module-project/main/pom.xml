@@ -17,10 +17,11 @@
 			<artifactId>frontend</artifactId>
 			<version>1.0</version>
 		</dependency>
-		<dependency>
+<!--		<dependency>
 			<groupId>org.tektutor</groupId>
 			<artifactId>business-layer</artifactId>
 			<version>1.0</version>
+-->
 		<dependency>
 			<groupId>org.tektutor</groupId>
 			<artifactId>data-access-layer</artifactId>
