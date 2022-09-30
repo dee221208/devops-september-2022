@@ -40,11 +40,11 @@ pipeline {
                 }
             }
         }
-        stage('Install') {
+        stage('Deploy') {
             steps {
                 script {
                     dir("Day2/multi-module-project") {
-                    	sh "mvn install"
+                    	sh "mvn deploy"
 		    }
                 }
             }
