@@ -2,17 +2,36 @@
 pipeline {
     agent none
     stages {
-        stage('Compile') {
-   	    agent {
-        	label 'docker-slave'
-	    }
-            steps {
-                script {
-                    dir("Day2/multi-module-project") {
-                    	sh "mvn clean compile"
-		    }
-                }
-            }
+        stage('Compile and Detect Code Smells') {
+		parallel {
+			stage('Compile') {
+			    agent {
+				label 'docker-slave'
+			    }
+			    steps {
+				script {
+				    dir("Day2/multi-module-project") {
+					sh "mvn clean compile"
+				    }
+				}
+			    }
+			}
+			stage('Static Code Analyis - SonarQube') {
+			    agent {
+				label 'docker-slave'
+			    }
+			    steps {
+				script {
+				    dir("Day2/multi-module-project") {
+					sh "mvn clean verify sonar:sonar \
+					       -Dsonar.projectKey=tektutor \
+					       -Dsonar.host.url=http://192.168.167.139:9000 \
+					       -Dsonar.login=sqp_df4cfe42450f0fbf402241f256d5de42fd17b115"
+				    }
+				}
+			    }
+			}
+		}
         }
         stage('Unit Test') {
    	    agent {
@@ -58,21 +77,6 @@ pipeline {
                 script {
                     dir("Day2/multi-module-project") {
                     	sh "mvn deploy"
-		    }
-                }
-            }
-        }
-        stage('Static Code Analyis - SonarQube') {
-   	    agent {
-        	label 'docker-slave'
-	    }
-            steps {
-                script {
-                    dir("Day2/multi-module-project") {
-                    	sh "mvn clean verify sonar:sonar \
-                               -Dsonar.projectKey=tektutor \
-                               -Dsonar.host.url=http://192.168.167.139:9000 \
-                               -Dsonar.login=sqp_df4cfe42450f0fbf402241f256d5de42fd17b115"
 		    }
                 }
             }
