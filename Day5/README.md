@@ -10,5 +10,5 @@ docker rm -f $(docker ps -q --filter name=^ubuntu*)
 cd ~/Downloads
 rm ./jenkins.war
 wget https://get.jenkins.io/war/2.346/jenkins.war --no-check-certificate
-java -jar ./jenkins.war
+java -jar ./jenkins.war  --enable-future-java
 ```
