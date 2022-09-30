@@ -1,8 +1,6 @@
 #!/usr/bin/env groovy
 pipeline {
-    agent {
-      label 'none'
-    }
+    agent none
     stages {
         stage('Build Jenkins Slave Node Container Name') {
            agent {
