@@ -1,2 +1,0 @@
-[all]
-localhost ansible_user=jegan ansible_password=root ansible_become_user=root ansible_become_password=root connection=local 

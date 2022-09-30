@@ -11,7 +11,7 @@ pipeline {
 	   steps {
               script {
                  dir("Day5/devops-pipeline") {
-                    sh "ansible-playbook build-docker-image-playbook.yml"
+                    sh "ansible-playbook -i inventory build-docker-image-playbook.yml"
                  }
               }
            }
