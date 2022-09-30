@@ -2,16 +2,28 @@
 pipeline {
     agent none
     stages {
-        stage('Compile and Detect Code Smells') {
+	stage('Compile') {
+	    agent {
+		label 'docker-slave'
+	    }
+	    steps {
+		script {
+		    dir("Day2/multi-module-project") {
+			sh "mvn clean compile"
+		    }
+		}
+	    }
+	}
+	stage('Compile and Detect Code Smells') {
 		parallel {
-			stage('Compile') {
+			stage('Unit Test') {
 			    agent {
 				label 'docker-slave'
 			    }
 			    steps {
 				script {
 				    dir("Day2/multi-module-project") {
-					sh "mvn clean compile"
+					sh "mvn test"
 				    }
 				}
 			    }
@@ -32,18 +44,6 @@ pipeline {
 			    }
 			}
 		}
-        }
-        stage('Unit Test') {
-   	    agent {
-        	label 'docker-slave'
-	    }
-            steps {
-                script {
-                    dir("Day2/multi-module-project") {
-                    	sh "mvn test"
-		    }
-                }
-            }
         }
         stage('package') {
    	    agent {
